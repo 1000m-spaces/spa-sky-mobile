@@ -1,0 +1,6 @@
+<resources>
+    <!-- <string name="app_name">Neo Cafe</string> -->
+    <string moduleConfig="true" name="CodePushDeploymentKey">3f84cd41-67d3-4874-9fd9-64210b674fc55</string>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+</resources>

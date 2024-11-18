@@ -1,0 +1,17 @@
+import React from 'react';
+import renderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import {store} from 'store/index';
+import {VerifyCode} from 'components/index';
+import {renderWithRedux} from 'helpers/RenderWithRedux';
+
+it('renders correctly', () => {
+  const mockRoute = {
+    params: {
+      phone: '0988924996',
+      type: 'your-type',
+    },
+  };
+  const tree = renderWithRedux(<VerifyCode route={mockRoute} />).toJSON();
+  expect(tree).toMatchSnapshot();
+});

@@ -1,0 +1,6 @@
+[defaults]
+url=https://sentry.io/
+org=ciaolink
+project=neocafe
+[auth]
+token=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

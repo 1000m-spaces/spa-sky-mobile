@@ -1,0 +1,22 @@
+import {fork} from 'redux-saga/effects';
+import authSaga from './auth/authSaga';
+import productSaga from './product/productSaga';
+import shopSaga from './shop/shopSaga';
+import userSaga from './user/userSaga';
+import categorySaga from './category/categorySaga';
+import locationSaga from './location/locationSaga';
+import orderSaga from './order/orderSaga';
+import shipmentSaga from './shipment/shipmentSaga';
+import cashinSaga from './cashin/cashinSaga';
+const saga = function* () {
+  yield fork(authSaga);
+  yield fork(productSaga);
+  yield fork(shopSaga);
+  yield fork(userSaga);
+  yield fork(categorySaga);
+  yield fork(locationSaga);
+  yield fork(orderSaga);
+  yield fork(shipmentSaga);
+  yield fork(cashinSaga);
+};
+export default saga;

@@ -1,0 +1,22 @@
+import Config from 'react-native-config';
+
+const BASE_PATH_MENU = Config.BASE_PATH_MENU;
+const BASE_PATH_CAFE = Config.BASE_PATH_CAFE;
+const CODE_PUSH_KEY = {
+  ios: Config.IOS_CODEPUSH_KEY,
+  android: Config.ANDROID_CODEPUSH_KEY,
+};
+const PAYMENT_PATH = Config.PAYMENT_PATH;
+const LINK_AFFILIATE = Config.LINK_AFFILIATE;
+const PARTNER_ID = Config.PARTNER_ID;
+const KEY_ONE_SIGNAL = Config.KEY_ONE_SIGNAL;
+
+export {
+  BASE_PATH_MENU,
+  BASE_PATH_CAFE,
+  CODE_PUSH_KEY,
+  PAYMENT_PATH,
+  LINK_AFFILIATE,
+  PARTNER_ID,
+  KEY_ONE_SIGNAL,
+};
