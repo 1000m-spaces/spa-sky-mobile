@@ -584,7 +584,7 @@ const Home = ({navigation}) => {
           onConfirm={() => handleConfirmChange()}
           textContent={strings.common.loginNotification}
         />
-        <PopUpVersion
+        {/* <PopUpVersion
           isSkip={isSkip}
           isUpdate={isUpdate}
           forceUpdate={forceUpdate}
@@ -599,7 +599,7 @@ const Home = ({navigation}) => {
           versionNew={verStore}
           versionApp={versionApp}
           onPressEvent={onCancelUpdateStore}
-        />
+        /> */}
         <ConfirmationModal
           isOpen={
             updateInstalledCodePush && modalConfirmUpdate && updateStore != true
