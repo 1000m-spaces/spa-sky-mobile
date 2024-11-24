@@ -32,6 +32,7 @@ import Affiliate from './Affiliate/Affiliate';
 import DeliveryAddress from './DeliveryAddress/DeliveryAddress';
 import WebviewPayment from './WebviewPayment/WebviewPayment';
 import ProductStory from './ProductStory/ProductStory';
+import BaseProfile from './BaseProfile/BaseProfile';
 export {
   Splash,
   Menu,
@@ -39,9 +40,10 @@ export {
   Account,
   OrderStatusResult,
   WebviewPayment,
+  BaseProfile,
+  ProductStory,
   Main,
   Home,
-  ProductStory,
   Shop,
   Login,
   DeliveryAddress,

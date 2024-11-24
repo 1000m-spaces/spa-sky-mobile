@@ -18,6 +18,7 @@ import {
   NAVIGATION_DELIVERY_ADDRESS,
   NAVIGATION_SHOP,
   NAVIGATION_PRODUCT_STORY,
+  NAVIGATION_BASE_PROFILE,
 } from './routes';
 import * as Screens from 'components';
 
@@ -58,6 +59,10 @@ const StackNavigator = () => {
       <Stack.Screen
         name={NAVIGATION_CART_DETAIL}
         component={Screens.CartDetail}
+      />
+      <Stack.Screen
+        name={NAVIGATION_BASE_PROFILE}
+        component={Screens.BaseProfile}
       />
       <Stack.Screen
         name={NAVIGATION_DELIVERY_ADDRESS}

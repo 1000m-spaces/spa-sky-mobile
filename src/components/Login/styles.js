@@ -1,9 +1,9 @@
-import { heightDevice, widthDevice } from 'assets/constans';
-import { StyleSheet } from 'react-native';
+import {heightDevice, widthDevice} from 'assets/constans';
+import {StyleSheet} from 'react-native';
 import Colors from 'theme/Colors';
 
 const styles = StyleSheet.create({
-  textError: { color: Colors.redColor, marginTop: 10, textAlign: 'center' },
+  textError: {color: Colors.redColor, marginTop: 10, textAlign: 'center'},
   safeView: {
     flex: 1,
   },
@@ -12,30 +12,54 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
   },
+  errorMessage: {
+    color: '#EF0000',
+    fontSize: 14,
+    paddingTop: 5,
+  },
 
   container: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 24,
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: 30,
     backgroundColor: Colors.backgroundColor,
   },
   textHello: {
-    // fontWeight: '500',
-    fontSize: 18,
-    marginTop: 20,
+    fontWeight: '500',
+    fontSize: 14,
+    alignSelf: 'center',
+    color: 'grey',
   },
-  textIntro: {
-    color: Colors.buttonTextColor,
+  textIntro1: {
     fontSize: 24,
     fontWeight: '700',
-    paddingVertical: 20,
+    // justifyContent: 'center',
+    alignSelf: 'center',
   },
-  policyWrapper: { paddingHorizontal: 10, paddingVertical: 10 },
-  checkboxSection: { flexDirection: 'row', paddingVertical: 15 },
+  textIntro: {
+    fontSize: 24,
+    fontWeight: '700',
+    // justifyContent: 'center',
+    alignSelf: 'center',
+    paddingBottom: 20,
+  },
+  policyWrapper: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  checkboxSection: {flexDirection: 'row', paddingVertical: 15},
+  linkText1: {
+    fontSize: 14,
+    // fontWeight: 'bold',
+    // textDecorationLine: 'underline',
+    color: Colors.link,
+  },
   linkText: {
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: 'bold',
     textDecorationLine: 'underline',
+    color: Colors.black,
+    marginTop: 20,
   },
   contentPolicySection: {
     flexDirection: 'row',
@@ -56,6 +80,7 @@ const styles = StyleSheet.create({
   styleCheckbox: {
     height: 18,
     width: 20,
+    marginRight: 10,
   },
   buttonSkip: {
     paddingHorizontal: 10,
@@ -67,22 +92,23 @@ const styles = StyleSheet.create({
     color: Colors.textGrayColor,
   },
   buttonSubmitPhone: {
-    backgroundColor: Colors.buttonTextColor,
+    // backgroundColor: Colors.buttonTextColor,
     // height: 60,
     // width: 60,
     // borderRadius: 60,
     // justifyContent: 'center',
     // alignItems: 'center',
-    width: widthDevice / 1.5,
-    height: 50,
+    width: widthDevice - 50,
+    height: 48,
     borderRadius: 30,
-    // backgroundColor: Colors.buttonTextColor,
+    backgroundColor: Colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
   viewButtonSubmitPhone: {
     alignItems: 'center',
-    paddingTop: 80,
+    paddingTop: 10,
+    paddingVertical: 20,
   },
   containerButtonInputPhone: {
     flexDirection: 'row',
@@ -90,33 +116,36 @@ const styles = StyleSheet.create({
     // marginTop: 0.16 * heightDevice,
     width: widthDevice * 0.88,
     backgroundColor: Colors.whiteColor,
-    paddingVertical: 5,
+    alignSelf: 'center',
+    paddingVertical: 10,
     borderRadius: 50,
   },
   viewImageVietnam: {
-    borderRightWidth: 1,
-    borderRightColor: '#E2E2E2',
-    paddingRight: 10,
     alignItems: 'center',
-    marginRight: 10,
     flexDirection: 'row',
     paddingLeft: 20,
   },
   codeCountry: {
     fontWeight: '500',
-    fontFamily: 'SVN-Poppins-Medium',
-    fontSize: 20,
+    fontSize: 18,
     marginRight: 10,
+    paddingVertical: 5,
+    borderRightColor: 'lightgrey',
+    borderStyle: 'solid',
+    paddingHorizontal: 10,
+    borderRightWidth: 1,
+    marginBottom: 2,
+    alignSelf: 'center',
   },
   styleTextInput: {
-    fontSize: 20,
+    fontSize: 18,
     // alignItems: 'center',
     // backgroundColor: 'red',
+    flex: 1,
     color: 'black',
-    fontFamily: 'SVN-Poppins-Medium',
+    // backgroundColor: 'green',
+    // fontFamily: 'SVN-Poppins-Medium',
     fontWeight: '500',
-    marginTop: 3,
-    // backgroundColor: 'red',
   },
   imageVietNam: {},
   iconDown: {

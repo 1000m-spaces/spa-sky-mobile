@@ -13,7 +13,7 @@ const Colors = {
   disbaled: '#B8B8B8',
   secondary: '#9E9E9E',
   green: '#34C759',
-  primary: '#2B3B5E',
+  primary: '#FE3032',
   link: '#00A2F3',
   warning: '#DF9B0F',
   teaColor: '#2E395C',

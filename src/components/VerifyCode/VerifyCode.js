@@ -1,7 +1,4 @@
-import {heightDevice, smart_phone, widthDevice} from 'assets/constans';
-import Images from 'common/Images/Images';
-import SeparatorLine from 'common/SeparatorLine/SeparatorLine';
-import {NAVIGATION_ACCESS_LOCATION, NAVIGATION_LOGIN} from 'navigation/routes';
+import {NAVIGATION_ACCESS_LOCATION, NAVIGATION_BASE_PROFILE, NAVIGATION_LOGIN} from 'navigation/routes';
 import {React, useState, useEffect, useRef} from 'react';
 import {
   SafeAreaView,
@@ -19,9 +16,7 @@ import {
   confirmOtpReset,
   getDeleteAccount,
   resetDeleteOtp,
-  // resetGetListProduct,
   deleteAccountReset,
-  resetOrder,
   confirmDeleteAccountOtp,
   logout,
 } from 'store/actions';
@@ -30,17 +25,10 @@ import {
   isStatusDeleteAccount,
   isStatusConfirmOtp,
   statusConfirmOtpDelete,
-  getErrorMessageConfirm,
 } from 'store/selectors';
 import Status from 'common/Status/Status';
-import {
-  TextNormal,
-  TextNormalSemiBold,
-  TextSemiBold,
-} from 'common/Text/TextFont';
-import Loading from 'common/Loading/Loading';
+import {TextNormal} from 'common/Text/TextFont';
 import {CommonActions} from '@react-navigation/native';
-import Svg from 'common/Svg/Svg';
 import {OneSignal} from 'react-native-onesignal';
 import {asyncStorage} from 'store/index';
 import strings from 'localization/Localization';
@@ -62,12 +50,6 @@ const VerifyCode = ({navigation, route}) => {
   const statusConfirmDelete = useSelector(state =>
     statusConfirmOtpDelete(state),
   );
-  const messageConfirmDelete = useSelector(state =>
-    getErrorMessageConfirm(state),
-  );
-  const handleAuthenticate = () => {
-    // navigation.navigate(NAVIGATION_ACCESS_LOCATION);
-  };
   const handleSendCodeAgain = () => {
     setDisableSendAgainButton(true);
     dispatch(sendPhone('+84' + phone.replace(/^0/, '')));
@@ -94,12 +76,11 @@ const VerifyCode = ({navigation, route}) => {
 
   useEffect(() => {
     if (statusConfirmOtp === Status.SUCCESS) {
-      // navigation.navigate(NAVIGATION_ACCESS_LOCATION);
       asyncStorage.setTheFirstLogin(false);
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
-          routes: [{name: NAVIGATION_ACCESS_LOCATION}],
+          routes: [{name: NAVIGATION_BASE_PROFILE}],
         }),
       );
       dispatch(confirmOtpReset());
@@ -123,10 +104,6 @@ const VerifyCode = ({navigation, route}) => {
       );
     }
   }, [statusDeleteAccount]);
-  const skip = async () => {
-    await asyncStorage.setTheFirstLogin(true);
-    navigation.navigate(NAVIGATION_ACCESS_LOCATION);
-  };
   useEffect(() => {
     getDeviceId();
     let time = setTimeout(() => {
@@ -145,90 +122,84 @@ const VerifyCode = ({navigation, route}) => {
       console.error('Lỗi khi lấy Subscription ID:', error);
     }
   };
+  const [timer, setTimer] = useState(60);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(lastTimerCount => {
+        lastTimerCount <= 1 && clearInterval(interval);
+        return lastTimerCount - 1;
+      });
+    }, 1000);
+  }, []);
   return (
-    <SafeAreaView>
-      <Pressable onPress={Keyboard.dismiss}>
-        {/* Title */}
-        <View style={styles.wrapperTitle}>
-          {/* <Images
-            resizeMode="contain"
-            style={styles.imageStyle}
-            source={smart_phone}
-          />
-          <View style={styles.dot}>
-            <TextNormal style={styles.iconStar}>******</TextNormal>
-          </View> */}
-          <Svg
-            name={'smart_phone'}
-            color={'white'}
-            // size={50}
-            height={(77 / 852) * heightDevice}
-            width={(74 / 393) * widthDevice}
-            style={{
-              marginTop: 0.08 * heightDevice,
-              marginBottom: (30 / 852) * heightDevice,
-            }}
-          />
-          <TextNormal style={styles.title}>
-            {strings.verifyScreen.confirmOtp}
-          </TextNormal>
-          <TextNormal style={styles.subtitle}>
-            {strings.verifyScreen.title + ' +84' + phone}
-          </TextNormal>
-          <SeparatorLine separatorLine={styles.separatorLine} />
-        </View>
-        {/* Input section */}
-        <View style={styles.wrapperInput}>
-          <CodeInput
-            setPinReady={setPinReady}
-            code={code}
-            setCode={setCode}
-            maxLength={MAX_CODE_LENGTH}
-            navigation={navigation}
-          />
-          <TextNormal style={styles.textError}>{errorConfirmOtp}</TextNormal>
-          {statusConfirmDelete === Status.ERROR && messageConfirmDelete && (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-              <TextNormal style={{color: 'red'}}>
-                {messageConfirmDelete}
+    <SafeAreaView style={styles.safeView}>
+      <Pressable style={styles.safeView} onPress={Keyboard.dismiss}>
+        <View style={[styles.container]}>
+          {/* Title */}
+          <View style={styles.wrapperTitle}>
+            <TextNormal style={styles.textIntro1}>
+              {'Chào mừng bạn đến với'}
+            </TextNormal>
+            <TextNormal style={styles.textIntro}>{'NEO CARE'}</TextNormal>
+            {/* <TextSemiBold>aa:{BASE_PATH_CAFE}</TextSemiBold> */}
+            <View style={styles.wrapperSubtitle}>
+              <TextNormal style={styles.subtitle}>
+                {strings.verifyScreen.title}
+              </TextNormal>
+              <TextNormal style={styles.textReceive}>
+                {'+84' + phone}
               </TextNormal>
             </View>
+          </View>
+          {/* Input section */}
+          <View style={styles.wrapperInput}>
+            <CodeInput
+              setPinReady={setPinReady}
+              code={code}
+              setCode={setCode}
+              maxLength={MAX_CODE_LENGTH}
+              navigation={navigation}
+            />
+            {errorConfirmOtp && (
+              <TextNormal style={styles.textError}>
+                {errorConfirmOtp || 'Mã xác minh không đúng'}
+              </TextNormal>
+            )}
+          </View>
+          {pinReady ? (
+            <View style={styles.wrapperSubtitle}>
+              <TextNormal style={styles.subtitle}>Đang xác minh...</TextNormal>
+            </View>
+          ) : (
+            <View>
+              {timer > 0 ? (
+                <View style={styles.textShowTimer}>
+                  <TextNormal style={styles.questionSendback}>
+                    Bạn không nhận được mã? Gửi lại mã sau
+                  </TextNormal>
+                  <TextNormal style={styles.textReceive}>
+                    {timer <= 59
+                      ? timer <= 9
+                        ? `00:0${timer}`
+                        : `00:${timer}`
+                      : `0${parseInt(timer / 60, 10)}:${
+                          timer % 60 > 9 ? timer % 60 : '0' + (timer % 60)
+                        } `}
+                  </TextNormal>
+                </View>
+              ) : (
+                <TouchableOpacity
+                  onPress={handleSendCodeAgain}
+                  disabled={disableSendAgainButton || timer > 0}>
+                  <TextNormal style={styles.textSend}>
+                    {strings.verifyScreen.sendBack}
+                  </TextNormal>
+                </TouchableOpacity>
+              )}
+            </View>
           )}
-          <TextNormal style={styles.textReceive}>
-            {strings.verifyScreen.question}
-          </TextNormal>
-          <TouchableOpacity
-            onPress={handleSendCodeAgain}
-            disabled={disableSendAgainButton}>
-            <TextNormal
-              style={
-                disableSendAgainButton === true
-                  ? styles.textSendMessage
-                  : styles.textSend
-              }>
-              {disableSendAgainButton === true
-                ? strings.verifyScreen.resendRespond
-                : strings.verifyScreen.sendBack}
-            </TextNormal>
-          </TouchableOpacity>
-        </View>
-        {/* Button Confirm */}
-        <View style={styles.viewButton}>
-          <TouchableOpacity
-            onPress={handleAuthenticate}
-            style={styles.buttonConfirm}>
-            <TextSemiBold style={styles.textButton}>
-              {strings.verifyScreen.verifyContinue}
-            </TextSemiBold>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => skip()} style={styles.buttonSkip}>
-            <TextNormalSemiBold style={styles.textSkip}>
-              {strings.common.skip}
-            </TextNormalSemiBold>
-          </TouchableOpacity>
         </View>
       </Pressable>
-      <Loading isHidden={statusConfirmOtp === Status.LOADING} />
     </SafeAreaView>
   );
 };

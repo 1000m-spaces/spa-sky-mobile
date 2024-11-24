@@ -16,7 +16,7 @@ export const GOOGLE_MAP_KEY = 'AIzaSyDy_5NNS-DwcZkcIYMar-wcspaL9fWJbQ0';
 export const MIDDLE_DOT = '\u25CF';
 export const voucher_bg = require('assets/images/voucher_bg.png');
 export const IMAGE_URL = 'https://helio.assets.ciaolink.net';
-
+export const logo_splash_spa = require('./images/logo_splash_spa.png')
 
 export const logo_noborder = require('assets/logo/logo_noborder.png');
 export const image_error = require('assets/images/image_error.jpg');
