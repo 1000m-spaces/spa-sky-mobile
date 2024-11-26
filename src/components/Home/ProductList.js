@@ -5,8 +5,6 @@ import styles from './styles';
 import ProductHome from './ProductHome';
 
 const ProductList = ({categoryProducts, clickDetailProduct}) => {
-  // RENDER ITEM PRODUCT
-  console.log('categoryProducts[0]?.products::', categoryProducts[0]?.products);
   const renderProductItem = ({item, index}) => {
     return (
       <ProductHome

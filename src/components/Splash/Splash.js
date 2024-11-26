@@ -189,7 +189,7 @@ const Splash = props => {
   }, [currentShop, showDownload]);
   // GET EXPIRE PRODUCT AFTER CURRENT SHOP CHANGE
 
-  const initListProductMenu = () => {
+  const initListProductMenu = async () => {
     const language = currentUser?.current?.language
       ? currentUser.current?.language
       : 'vi';
@@ -220,10 +220,11 @@ const Splash = props => {
       }),
     );
     checkIndexRecommend();
+    const profile = await asyncStorage.getProfile();
     setTimeout(() => {
       props.navigation.reset({
         index: 0,
-        routes: [{name: NAVIGATION_BASE_PROFILE}],
+        routes: [{name: !profile ? NAVIGATION_LOGIN : NAVIGATION_MAIN}],
       });
     }, 800);
   };

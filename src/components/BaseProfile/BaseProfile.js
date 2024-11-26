@@ -5,6 +5,7 @@ import Icons from 'common/Icons/Icons';
 import MyModal from 'common/MyModal/MyModal';
 import {TextMoneyBold, TextNormal, TextSemiBold} from 'common/Text/TextFont';
 import strings from 'localization/Localization';
+import { NAVIGATION_MAIN } from 'navigation/routes';
 import {React, useState} from 'react';
 import {
   SafeAreaView,
@@ -14,9 +15,10 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import { asyncStorage } from 'store/index';
 import Colors from 'theme/Colors';
 
-const BaseProfile = ({next}) => {
+const BaseProfile = ({navigation}) => {
   const [fullName, setFullName] = useState('');
   const [gender, setGender] = useState('');
   const [modal, setModal] = useState(-1);
@@ -34,9 +36,10 @@ const BaseProfile = ({next}) => {
       full_name: fullName,
       gender: gender === 'Nam' ? 1 : 0,
       info_submitted: 1,
-      height: parseFloat(height),
       birthday: formatBirthday(date.toISOString()),
     };
+    await asyncStorage.setProfile(payload);
+    navigation.navigate(NAVIGATION_MAIN)
   };
 
   return (
