@@ -4,6 +4,8 @@ import {
   backGSplash,
   GOOGLE_MAP_KEY,
   GOOGLEMAP_URL,
+  heightDevice,
+  logo_splash_spa,
   tra_logo,
   widthDevice,
 } from 'assets/constans';
@@ -11,6 +13,7 @@ import Images from 'common/Images/Images';
 import styles from './styles';
 import {
   NAVIGATION_ACCESS_LOCATION,
+  NAVIGATION_BASE_PROFILE,
   NAVIGATION_LOGIN,
   NAVIGATION_MAIN,
 } from 'navigation/routes';
@@ -40,19 +43,13 @@ import DeviceInfo from 'react-native-device-info';
 import {CODE_PUSH_KEY, PARTNER_ID} from 'assets/config';
 import strings from 'localization/Localization';
 import HttpClient, {setDefaultLanguage} from 'http/HttpClient';
-import {ImageBackground} from 'react-native';
-// import Geocoder from 'react-native-geocoding';
 
 var timeOutt = null;
 
 const Splash = props => {
   const dispatch = useDispatch();
-  // const insets = useSafeAreaInsets();
   const currentLocation = useSelector(state => getCurrentLocation(state));
   const currentShop = useSelector(state => getCurrentShop(state));
-  // const currentCategory = useSelector(state =>
-  //   getCurrentSelectedCategory(state),
-  // );
   const [theFirstLogin, setFirstLogin] = useState(false);
   const currentUser = useRef({custid: -1});
   const [showDownload, setShowDownload] = useState(false);
@@ -101,12 +98,6 @@ const Splash = props => {
       },
     );
     console.log('remotePackage:', remotePackage);
-    // try {
-    //   const update = await CodePush.getUpdateMetadata(UpdateState.RUNNING);
-    //   console.log('BBBBBBBBBBBBBBBBB:', update);
-    // } catch (e) {
-    //   console.log('loi rôiiiiiiiiiiiiiii:', e);
-    // }
     clearTimeout(timeOutCheckDowload);
     if (
       remotePackage == null ||
@@ -198,7 +189,7 @@ const Splash = props => {
   }, [currentShop, showDownload]);
   // GET EXPIRE PRODUCT AFTER CURRENT SHOP CHANGE
 
-  const initListProductMenu = () => {
+  const initListProductMenu = async () => {
     const language = currentUser?.current?.language
       ? currentUser.current?.language
       : 'vi';
@@ -229,10 +220,11 @@ const Splash = props => {
       }),
     );
     checkIndexRecommend();
+    const profile = await asyncStorage.getProfile();
     setTimeout(() => {
       props.navigation.reset({
         index: 0,
-        routes: [{name: NAVIGATION_MAIN}],
+        routes: [{name: !profile ? NAVIGATION_LOGIN : NAVIGATION_MAIN}],
       });
     }, 800);
   };
@@ -311,7 +303,7 @@ const Splash = props => {
             //   });
             // }
           } else {
-            checkIndexRecommend();
+            // checkIndexRecommend();
             props.navigation.reset({
               index: 0,
               routes: [{name: NAVIGATION_ACCESS_LOCATION}],
@@ -320,7 +312,7 @@ const Splash = props => {
         });
         // setAutoLogin(true);
       } else {
-        checkIndexRecommend();
+        // checkIndexRecommend();
         // console.log('PASS TO LOGIN RIGHT NOW');
         props.navigation.reset({
           index: 0,
@@ -352,88 +344,28 @@ const Splash = props => {
   return (
     <View style={styles.container}>
       {!showDownload ? (
-        // <View style={{flex: 1, backgroundColor: '#162D25'}}>
-        //   <View
-        //     style={[
-        //       styles.viewLogoSlogan,
-        //       {
-        //         height:
-        //           heightDevice -
-        //           widthDevice * 1.4188 -
-        //           insets.bottom -
-        //           insets.top,
-        //       },
-        //     ]}>
-        //     <View
-        //       style={[
-        //         styles.viewLogo,
-        //         {
-        //           marginTop:
-        //             heightDevice -
-        //             widthDevice * 1.4188 -
-        //             insets.bottom -
-        //             insets.top -
-        //             65,
-        //         },
-        //       ]}>
-        //       <Images
-        //         source={logo_noborder}
-        //         reSizeMode="contain"
-        //         style={{height: 127, width: 127, borderRadius: 30}}
-        //       />
-        //     </View>
-        //     <Svg
-        //       name={'icon_slogan'}
-        //       height={30}
-        //       width={280}
-        //       style={styles.imageSlogan}
-        //     />
-        //   </View>
-        //   <View style={[styles.viewBottom, {height: widthDevice * 1.4188}]}>
-        //     <Svg
-        //       name={'bg_splash1'}
-        //       width={widthDevice}
-        //       height={widthDevice * 1.4188}
-        //       reSizeMode="contain"
-        //     />
-        //   </View>
-        //   <Loading isHidden={true} />
-        // </View>
         <View style={{flex: 1}}>
-          {/* <View
-            style={[
-              styles.viewLogo,
-              {
-                marginTop:
-                  heightDevice -
-                  widthDevice * 1.4188 -
-                  insets.bottom -
-                  insets.top -
-                  65,
-              },
-            ]}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#FEFBD2',
+            }}>
+            {/* <Svg name={'banner_splash'} size={100} style={{backgroundColor: 'red', position: 'absolute', top: 0, left: widthDevice / 2}} /> */}
             <Images
-              source={logo_noborder}
-              reSizeMode="contain"
-              style={{height: 127, width: 127, borderRadius: 30}}
+              source={logo_splash_spa}
+              resizeMode={'contain'}
+              style={{width: 228, height: 150}}
             />
-          </View> */}
-          <ImageBackground
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-            source={backGSplash}>
-            <Svg
-              style={{marginBottom: 100}}
-              name={'logo_splash_tea'}
-              size={250}
-            />
-          </ImageBackground>
+          </View>
         </View>
       ) : (
         <View style={styles.containerUpdate}>
           <View style={styles.containerUpdate}>
             <Images source={tra_logo} style={{height: 120, width: 120}} />
             <TextSemiBold style={{marginTop: 20}}>
-              Đang cập nhật hệ thống
+              {'Đang cập nhật hệ thống'}
             </TextSemiBold>
           </View>
           <View

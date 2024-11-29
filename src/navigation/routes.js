@@ -28,3 +28,4 @@ export const NAVIGATION_ORDER_RESULT = 'OrderStatusResult';
 export const NAVIGATION_WEB_PAYMENT = 'WebviewPayment';
 export const NAVIGATION_DELIVERY_ADDRESS = 'DeliveryAddress';
 export const NAVIGATION_PRODUCT_STORY = 'ProductStory';
+export const NAVIGATION_BASE_PROFILE = 'BaseProfile';

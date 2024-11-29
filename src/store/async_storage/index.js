@@ -193,7 +193,25 @@ const setPaymentGateway = async v => {
   }
 };
 
+const getProfile = async () => {
+  try {
+    const data = await AsyncStorage.getItem('profile');
+    return JSON.parse(data);
+  } catch (error) {
+    console.log('get profile error:::', error)
+  }
+};
+const setProfile = async v => {
+  try {
+    await AsyncStorage.setItem('profile', JSON.stringify(v));
+  } catch (error) {
+    console.log('set profile error:::', error);
+  }
+}
+
 export default {
+  getProfile,
+  setProfile,
   setListRecommned,
   getCart,
   getPaymentGateway,

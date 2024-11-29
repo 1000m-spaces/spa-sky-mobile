@@ -35,10 +35,9 @@ const CodeInput = ({setPinReady, code, setCode, maxLength, navigation}) => {
     return () => setPinReady(false);
   }, [code]);
   useEffect(() => {
-    let time = setTimeout(() => {
+    setTimeout(() => {
       handleOnPress();
     }, 600);
-    return () => clearTimeout(time);
   }, []);
   const toCodeDigitInput = (value, index) => {
     const emptyInputChar = '';
@@ -49,9 +48,7 @@ const CodeInput = ({setPinReady, code, setCode, maxLength, navigation}) => {
     const isDigitFocused = isCurrentDigit || (isLastDigit && isCodeFull);
     const styleOTPInput = inputContainerFocus && isDigitFocused ? true : false;
     return (
-      <View
-        key={index}
-        style={styleOTPInput ? styles.otpInputViewActive : styles.otpInputView}>
+      <View key={index} style={styles.otpInputView}>
         <Text style={styles.otpInputText}>{digit}</Text>
       </View>
     );
