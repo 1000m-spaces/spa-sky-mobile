@@ -1,11 +1,12 @@
 import {heightDevice, widthDevice} from 'assets/constans';
 import CustomButton from 'common/CustomButton/CustomButton';
 import CustomDatePicker from 'common/DatePicker/DatePicker';
+import GenderPicker from 'common/GenderPicker/GenderPicker';
 import Icons from 'common/Icons/Icons';
 import MyModal from 'common/MyModal/MyModal';
 import {TextMoneyBold, TextNormal, TextSemiBold} from 'common/Text/TextFont';
 import strings from 'localization/Localization';
-import { NAVIGATION_MAIN } from 'navigation/routes';
+import { NAVIGATION_CONNECTION, NAVIGATION_MAIN } from 'navigation/routes';
 import {React, useState} from 'react';
 import {
   SafeAreaView,
@@ -39,7 +40,7 @@ const BaseProfile = ({navigation}) => {
       birthday: formatBirthday(date.toISOString()),
     };
     await asyncStorage.setProfile(payload);
-    navigation.navigate(NAVIGATION_MAIN)
+    navigation.navigate(NAVIGATION_CONNECTION);
   };
 
   return (
@@ -105,6 +106,15 @@ const BaseProfile = ({navigation}) => {
         type={'date'}
         onConfirm={v => {
           setDate(v);
+          setModal(-1);
+        }}
+        onClose={() => setModal(-1)}
+      />
+      <GenderPicker
+        isOpen={modal === 2}
+        title={'Chọn giới tính'}
+        onSelect={(v) => {
+          setGender(v);
           setModal(-1);
         }}
         onClose={() => setModal(-1)}

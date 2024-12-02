@@ -108,13 +108,14 @@ import i_1184 from './iconMain/1184.svg';
 import i_1185 from './iconMain/1185.svg';
 import i_1186 from './iconMain/1186.svg';
 import i_1187 from './iconMain/1187.svg';
-
+import spa_empty_page from './iconMain/spa_empty_page.svg';
 import review_icon from './iconMain/review_icon.svg';
 import home_gift from './iconMain/home_gift.svg';
 export default {
   icon_momo,
   i_1173,
   review_icon,
+  spa_empty_page,
   back_icon,
   home_gift,
   cate_header,
