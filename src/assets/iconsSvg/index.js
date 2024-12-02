@@ -108,6 +108,9 @@ import i_1184 from './iconMain/1184.svg';
 import i_1185 from './iconMain/1185.svg';
 import i_1186 from './iconMain/1186.svg';
 import i_1187 from './iconMain/1187.svg';
+import i_1203 from './iconMain/1187.svg';
+import i_1204 from './iconMain/1187.svg';
+import i_1206 from './iconMain/1187.svg';
 import spa_empty_page from './iconMain/spa_empty_page.svg';
 import review_icon from './iconMain/review_icon.svg';
 import home_gift from './iconMain/home_gift.svg';
@@ -132,6 +135,9 @@ export default {
   i_1185,
   i_1186,
   i_1187,
+  i_1203,
+  i_1204,
+  i_1206,
   pickup_icon_active,
   master_icon,
   // vietqr,
