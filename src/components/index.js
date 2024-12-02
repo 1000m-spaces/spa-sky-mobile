@@ -31,6 +31,7 @@ import OrderStatusResult from './OrderStatusResult/OrderStatusResult';
 import Affiliate from './Affiliate/Affiliate';
 import DeliveryAddress from './DeliveryAddress/DeliveryAddress';
 import WebviewPayment from './WebviewPayment/WebviewPayment';
+import Connection from './Connection/Connection';
 import ProductStory from './ProductStory/ProductStory';
 import BaseProfile from './BaseProfile/BaseProfile';
 export {
@@ -41,6 +42,7 @@ export {
   OrderStatusResult,
   WebviewPayment,
   BaseProfile,
+  Connection,
   ProductStory,
   Main,
   Home,

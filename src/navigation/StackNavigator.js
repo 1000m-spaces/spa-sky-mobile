@@ -19,6 +19,7 @@ import {
   NAVIGATION_SHOP,
   NAVIGATION_PRODUCT_STORY,
   NAVIGATION_BASE_PROFILE,
+  NAVIGATION_CONNECTION,
 } from './routes';
 import * as Screens from 'components';
 
@@ -68,6 +69,10 @@ const StackNavigator = () => {
         name={NAVIGATION_DELIVERY_ADDRESS}
         component={Screens.DeliveryAddress}
       />
+      <Stack.Screen
+        name={NAVIGATION_CONNECTION} 
+        component={Screens.Connection}
+        />
       <Stack.Screen
         name={NAVIGATION_WEB_PAYMENT}
         component={Screens.WebviewPayment}
