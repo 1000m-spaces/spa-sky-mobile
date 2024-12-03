@@ -6,7 +6,11 @@ import Icons from 'common/Icons/Icons';
 import MyModal from 'common/MyModal/MyModal';
 import {TextMoneyBold, TextNormal, TextSemiBold} from 'common/Text/TextFont';
 import strings from 'localization/Localization';
-import { NAVIGATION_CONNECTION, NAVIGATION_MAIN } from 'navigation/routes';
+import {
+  NAVIGATION_CONNECTION,
+  NAVIGATION_HOME,
+  NAVIGATION_MAIN,
+} from 'navigation/routes';
 import {React, useState} from 'react';
 import {
   SafeAreaView,
@@ -16,7 +20,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { asyncStorage } from 'store/index';
+import {asyncStorage} from 'store/index';
 import Colors from 'theme/Colors';
 
 const BaseProfile = ({navigation}) => {
@@ -40,7 +44,8 @@ const BaseProfile = ({navigation}) => {
       birthday: formatBirthday(date.toISOString()),
     };
     await asyncStorage.setProfile(payload);
-    navigation.navigate(NAVIGATION_CONNECTION);
+    // navigation.navigate(NAVIGATION_CONNECTION, {type: 1});
+    navigation.navigate(NAVIGATION_MAIN);
   };
 
   return (
@@ -113,7 +118,7 @@ const BaseProfile = ({navigation}) => {
       <GenderPicker
         isOpen={modal === 2}
         title={'Chọn giới tính'}
-        onSelect={(v) => {
+        onSelect={v => {
           setGender(v);
           setModal(-1);
         }}

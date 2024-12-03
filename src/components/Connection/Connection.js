@@ -14,7 +14,7 @@ import Icons from 'common/Icons/Icons';
 import {useDispatch, useSelector} from 'react-redux';
 import Status from 'common/Status/Status';
 import {asyncStorage} from 'store';
-import { NAVIGATION_HOME } from 'navigation/routes';
+import {NAVIGATION_HOME} from 'navigation/routes';
 const maxLength = 6;
 // -------------- TYPE = 1 --->>>>> MANUAL
 // -------------- TYPE = 2 --->>>>> QRCODE

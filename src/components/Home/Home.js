@@ -12,7 +12,7 @@ import {TextNormal} from 'common/Text/TextFont';
 import Svg from 'common/Svg/Svg';
 import {widthDevice} from 'assets/constans';
 import Colors from 'theme/Colors';
-import { NAVIGATION_CONNECTION } from 'navigation/routes';
+import {NAVIGATION_CONNECTION} from 'navigation/routes';
 
 const Home = ({navigation}) => {
   return (
@@ -24,7 +24,7 @@ const Home = ({navigation}) => {
       }}>
       <Svg name={'spa_empty_page'} size={150} />
       <TouchableOpacity
-        onPress={() => navigation.navigate(NAVIGATION_CONNECTION, { type: 1})}
+        onPress={() => navigation.navigate(NAVIGATION_CONNECTION, {type: 1})}
         style={{
           height: 47,
           width: widthDevice - 40,
