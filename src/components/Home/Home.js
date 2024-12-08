@@ -1,10 +1,6 @@
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {
   View,
-  Platform,
-  ScrollView,
-  AppState,
-  Linking,
   TouchableOpacity,
 } from 'react-native';
 import styles from './styles';
@@ -12,7 +8,7 @@ import {TextNormal} from 'common/Text/TextFont';
 import Svg from 'common/Svg/Svg';
 import {widthDevice} from 'assets/constans';
 import Colors from 'theme/Colors';
-import { NAVIGATION_CONNECTION } from 'navigation/routes';
+import {NAVIGATION_CONNECTION} from 'navigation/routes';
 
 const Home = ({navigation}) => {
   return (
@@ -24,7 +20,7 @@ const Home = ({navigation}) => {
       }}>
       <Svg name={'spa_empty_page'} size={150} />
       <TouchableOpacity
-        onPress={() => navigation.navigate(NAVIGATION_CONNECTION, { type: 1})}
+        onPress={() => navigation.navigate(NAVIGATION_CONNECTION, {type: 1})}
         style={{
           height: 47,
           width: widthDevice - 40,
@@ -39,7 +35,7 @@ const Home = ({navigation}) => {
             color: 'white',
             fontWeight: '600',
             fontSize: 15,
-            textAlgin: 'center',
+            textAlign: 'center',
           }}>
           {'Nhập mã thủ công'}
         </TextNormal>

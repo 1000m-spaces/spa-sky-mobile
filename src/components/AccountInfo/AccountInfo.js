@@ -140,6 +140,7 @@ const AccountInfo = ({navigation}) => {
   };
   useEffect(() => {
     initUser();
+    console.log('current Account::', currentAccount)
   }, []);
 
   useEffect(() => {

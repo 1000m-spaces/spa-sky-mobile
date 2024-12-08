@@ -6,8 +6,8 @@ import Icons from 'common/Icons/Icons';
 import MyModal from 'common/MyModal/MyModal';
 import {TextMoneyBold, TextNormal, TextSemiBold} from 'common/Text/TextFont';
 import strings from 'localization/Localization';
-import { NAVIGATION_CONNECTION, NAVIGATION_MAIN } from 'navigation/routes';
-import {React, useState} from 'react';
+import {NAVIGATION_CONNECTION, NAVIGATION_MAIN} from 'navigation/routes';
+import {React, useEffect, useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -16,31 +16,59 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { asyncStorage } from 'store/index';
+// import async_storage from 'store/async_storage/index';
+import {asyncStorage} from 'store/index';
 import Colors from 'theme/Colors';
-
+import moment from 'moment';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateUserInformation} from 'store/actions';
+import {getStatusUpdateUser} from 'store/selectors';
+import Status from 'common/Status/Status';
 const BaseProfile = ({navigation}) => {
   const [fullName, setFullName] = useState('');
   const [gender, setGender] = useState('');
   const [modal, setModal] = useState(-1);
   const [date, setDate] = useState(new Date());
-  const [height, setHeight] = useState(165);
-  function formatBirthday(birthdayInput) {
-    const bdArr = birthdayInput.substring(0, 10).split('-');
-    return `${bdArr[0]}-${bdArr[1]}-${bdArr[2]}T00:00:00Z`;
-  }
+  const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+  const statusUpdateUser = useSelector(state => getStatusUpdateUser(state));
+  // function formatBirthday(birthdayInput) {
+  //   const bdArr = birthdayInput.substring(0, 10).split('-');
+  //   return `${bdArr[0]}-${bdArr[1]}-${bdArr[2]}T00:00:00Z`;
+  // }
+  useEffect(() => {
+    const initUser = async () => {
+      const u = await asyncStorage.getUser();
+      console.log('u::', u);
+      if (u) {
+        setUser(u);
+        setFullName(u.custname)
+        setDate(new Date(u.cust_birthday))
+        setGender(u.gender === '0' ? 'Nam' : 'Nữ')
+      }
+    };
+    initUser();
+  }, []);
+  useEffect(() => {
+    console.log('statusUpdateUser::', statusUpdateUser);
+    if (statusUpdateUser === Status.SUCCESS) {
+      navigation.navigate(NAVIGATION_MAIN);
+    }
+  }, [statusUpdateUser]);
   const handleSubmitInfo = async () => {
     if (!fullName) {
       return;
     }
     const payload = {
-      full_name: fullName,
-      gender: gender === 'Nam' ? 1 : 0,
-      info_submitted: 1,
-      birthday: formatBirthday(date.toISOString()),
+      cust_name: fullName,
+      cust_id: user.custid,
+      session_key: user.session_key,
+      cust_sex: gender === 'Nam' ? 1 : 0,
+      cust_birthday: moment(date).format('DD/MM/YYYY'),
     };
-    await asyncStorage.setProfile(payload);
-    navigation.navigate(NAVIGATION_CONNECTION);
+    console.log('payload:::', payload);
+    dispatch(updateUserInformation(payload));
+    // await asyncStorage.setProfile(payload);
   };
 
   return (
@@ -81,7 +109,7 @@ const BaseProfile = ({navigation}) => {
             style={styles.birthSection}
             onPress={() => setModal(2)}>
             <TextNormal style={{color: !gender ? Colors.secondary : 'black'}}>
-              {!gender ? 'Chọn giới tính của bạn' : gender}
+              {gender}
             </TextNormal>
           </TouchableOpacity>
         </View>
@@ -113,7 +141,7 @@ const BaseProfile = ({navigation}) => {
       <GenderPicker
         isOpen={modal === 2}
         title={'Chọn giới tính'}
-        onSelect={(v) => {
+        onSelect={v => {
           setGender(v);
           setModal(-1);
         }}

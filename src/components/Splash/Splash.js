@@ -220,11 +220,16 @@ const Splash = props => {
       }),
     );
     checkIndexRecommend();
-    const profile = await asyncStorage.getProfile();
     setTimeout(() => {
       props.navigation.reset({
         index: 0,
-        routes: [{name: !profile ? NAVIGATION_LOGIN : NAVIGATION_MAIN}],
+        routes: [
+          {
+            name: currentUser?.current?.custid === -1
+              ? NAVIGATION_LOGIN
+              : NAVIGATION_MAIN,
+          },
+        ],
       });
     }, 800);
   };
