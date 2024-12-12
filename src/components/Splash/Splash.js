@@ -33,6 +33,7 @@ import {
   getUpdateInstalledCodePush,
   listDeliAddres,
   selectDeliveryAction,
+  checkAffiliate,
 } from 'store/actions';
 import {getCurrentLocation, getCurrentShop} from 'store/selectors';
 import CodePush, {UpdateState} from 'react-native-code-push';
@@ -63,6 +64,9 @@ const Splash = props => {
     // strings.setLanguage('en');
     checkUpdate();
     dispatch(getVersion(os, version, parseFloat(PARTNER_ID)));
+    if (currentUser?.custid !== -1) {
+      dispatch(checkAffiliate(currentUser?.custid));
+    }
   }, []);
 
   //Check update CodePush
@@ -225,9 +229,10 @@ const Splash = props => {
         index: 0,
         routes: [
           {
-            name: currentUser?.current?.custid === -1
-              ? NAVIGATION_LOGIN
-              : NAVIGATION_MAIN,
+            name:
+              currentUser?.current?.custid === -1
+                ? NAVIGATION_LOGIN
+                : NAVIGATION_MAIN,
           },
         ],
       });

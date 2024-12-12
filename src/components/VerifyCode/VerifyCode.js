@@ -140,7 +140,7 @@ const VerifyCode = ({navigation, route}) => {
             <TextNormal style={styles.textIntro1}>
               {'Chào mừng bạn đến với'}
             </TextNormal>
-            <TextNormal style={styles.textIntro}>{'NEO CARE'}</TextNormal>
+            <TextNormal style={styles.textIntro}>{'SPA SKY'}</TextNormal>
             {/* <TextSemiBold>aa:{BASE_PATH_CAFE}</TextSemiBold> */}
             <View style={styles.wrapperSubtitle}>
               <TextNormal style={styles.subtitle}>

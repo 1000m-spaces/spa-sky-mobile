@@ -110,15 +110,15 @@ const listFeatures = () => [
   //     index: 3,
   //   },
   // },
-  // {
-  //   name: strings.accountScreen.referralCode,
-  //   icon: 'icon_voucher1',
-  //   link: '',
-  //   group: {
-  //     id: 2,
-  //     index: 4,
-  //   },
-  // },
+  {
+    name: strings.accountScreen.referralCode,
+    icon: 'icon_voucher1',
+    link: '',
+    group: {
+      id: 2,
+      index: 4,
+    },
+  },
   {
     name: strings.accountScreen.language,
     icon: 'icon_language1',

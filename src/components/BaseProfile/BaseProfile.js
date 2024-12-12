@@ -42,9 +42,9 @@ const BaseProfile = ({navigation}) => {
       console.log('u::', u);
       if (u) {
         setUser(u);
-        setFullName(u.custname)
-        setDate(new Date(u.cust_birthday))
-        setGender(u.gender === '0' ? 'Nam' : 'Nữ')
+        setFullName(u.custname);
+        setDate(new Date(u.cust_birthday));
+        setGender(u.gender === '0' ? 'Nam' : 'Nữ');
       }
     };
     initUser();
@@ -69,6 +69,7 @@ const BaseProfile = ({navigation}) => {
     console.log('payload:::', payload);
     dispatch(updateUserInformation(payload));
     // await asyncStorage.setProfile(payload);
+    navigation.navigate(NAVIGATION_MAIN);
   };
 
   return (

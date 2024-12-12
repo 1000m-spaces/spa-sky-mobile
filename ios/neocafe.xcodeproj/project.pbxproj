@@ -24,11 +24,11 @@
 		4D50A8121EF791AB6458393E /* libPods-neocafe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63382D3933FE917C702C0A3D /* libPods-neocafe.a */; };
 		5A8DC7CA275A4C159CC08065 /* SVN-Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08DEE25657494F529A60E575 /* SVN-Poppins-MediumItalic.ttf */; };
 		7B2A1B46CCF64548AF8EC4E2 /* SVN-Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38672C47AC9447849EA8B649 /* SVN-Poppins-ThinItalic.ttf */; };
+		962707EA2CFF0E0700873348 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962707E92CFF0E0700873348 /* NotificationService.swift */; };
+		962707EE2CFF0E0700873348 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 962707E72CFF0E0700873348 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		963363832CEAE23D00D02628 /* zpdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963363822CEAE23D00D02628 /* zpdk.framework */; };
 		963363842CEAE23E00D02628 /* zpdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963363822CEAE23D00D02628 /* zpdk.framework */; };
 		963363862CEAE26F00D02628 /* PayZaloBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 963363852CEAE26F00D02628 /* PayZaloBridge.m */; };
-		963483E92BF45ED800A6CD0E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963483E82BF45ED800A6CD0E /* NotificationService.swift */; };
-		963483ED2BF45ED800A6CD0E /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 963483E62BF45ED800A6CD0E /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		96B92F612BFD9995002420FF /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96F8E7512BFD906E0039C4AE /* Roboto-Black.ttf */; };
 		96B92F622BFD9995002420FF /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96F8E7582BFD906E0039C4AE /* Roboto-Bold.ttf */; };
 		96B92F632BFD9995002420FF /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96F8E75A2BFD906E0039C4AE /* Roboto-Light.ttf */; };
@@ -76,11 +76,11 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = neocafe;
 		};
-		963483EB2BF45ED800A6CD0E /* PBXContainerItemProxy */ = {
+		962707EC2CFF0E0700873348 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 963483E52BF45ED800A6CD0E;
+			remoteGlobalIDString = 962707E62CFF0E0700873348;
 			remoteInfo = OneSignalNotificationServiceExtension;
 		};
 /* End PBXContainerItemProxy section */
@@ -102,7 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				963483ED2BF45ED800A6CD0E /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
+				962707EE2CFF0E0700873348 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -115,7 +115,7 @@
 		00E356F21AD99517003FC87E /* neocafeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = neocafeTests.m; sourceTree = "<group>"; };
 		08DEE25657494F529A60E575 /* SVN-Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SVN-Poppins-MediumItalic.ttf"; path = "../src/assets/fonts/SVN-Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		0D4D0A6E32E64D0B87F70126 /* SVN-Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SVN-Poppins-Thin.ttf"; path = "../src/assets/fonts/SVN-Poppins-Thin.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Tra1000mDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tra1000mDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* SpaSkyDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaSkyDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = neocafe/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = neocafe/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = neocafe/Images.xcassets; sourceTree = "<group>"; };
@@ -137,9 +137,12 @@
 		7BAD68E7B1148C1D2292E900 /* Pods-neocafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neocafe.debug.xcconfig"; path = "Target Support Files/Pods-neocafe/Pods-neocafe.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = neocafe/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		821563D8E9F24697872DD45E /* SVN-Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SVN-Poppins-BlackItalic.ttf"; path = "../src/assets/fonts/SVN-Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		962707E72CFF0E0700873348 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		962707E92CFF0E0700873348 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		962707EB2CFF0E0700873348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962707F32CFF149C00873348 /* neocafeRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = neocafeRelease.entitlements; path = neocafe/neocafeRelease.entitlements; sourceTree = "<group>"; };
 		963363822CEAE23D00D02628 /* zpdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = zpdk.framework; sourceTree = "<group>"; };
 		963363852CEAE26F00D02628 /* PayZaloBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayZaloBridge.m; sourceTree = "<group>"; };
-		963483E62BF45ED800A6CD0E /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		963483E82BF45ED800A6CD0E /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		963483EA2BF45ED800A6CD0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		963483F22BF45EF100A6CD0E /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
@@ -191,7 +194,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		963483E32BF45ED800A6CD0E /* Frameworks */ = {
+		962707E42CFF0E0700873348 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +224,7 @@
 		13B07FAE1A68108700A75B9A /* neocafe */ = {
 			isa = PBXGroup;
 			children = (
+				962707F32CFF149C00873348 /* neocafeRelease.entitlements */,
 				96FCFE3E2A5413B900AC3D10 /* neocafe.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -274,6 +278,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* neocafeTests */,
 				963483E72BF45ED800A6CD0E /* OneSignalNotificationServiceExtension */,
+				962707E82CFF0E0700873348 /* OneSignalNotificationServiceExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -287,11 +292,20 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Tra1000mDebug.app */,
+				13B07F961A680F5B00A75B9A /* SpaSkyDebug.app */,
 				00E356EE1AD99517003FC87E /* neocafeTests.xctest */,
-				963483E62BF45ED800A6CD0E /* OneSignalNotificationServiceExtension.appex */,
+				962707E72CFF0E0700873348 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		962707E82CFF0E0700873348 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				962707E92CFF0E0700873348 /* NotificationService.swift */,
+				962707EB2CFF0E0700873348 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		963483E72BF45ED800A6CD0E /* OneSignalNotificationServiceExtension */ = {
@@ -386,20 +400,20 @@
 			buildRules = (
 			);
 			dependencies = (
-				963483EC2BF45ED800A6CD0E /* PBXTargetDependency */,
+				962707ED2CFF0E0700873348 /* PBXTargetDependency */,
 			);
 			name = neocafe;
 			productName = neocafe;
-			productReference = 13B07F961A680F5B00A75B9A /* Tra1000mDebug.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* SpaSkyDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
-		963483E52BF45ED800A6CD0E /* OneSignalNotificationServiceExtension */ = {
+		962707E62CFF0E0700873348 /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 963483EE2BF45ED800A6CD0E /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildConfigurationList = 962707EF2CFF0E0700873348 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				963483E22BF45ED800A6CD0E /* Sources */,
-				963483E32BF45ED800A6CD0E /* Frameworks */,
-				963483E42BF45ED800A6CD0E /* Resources */,
+				962707E32CFF0E0700873348 /* Sources */,
+				962707E42CFF0E0700873348 /* Frameworks */,
+				962707E52CFF0E0700873348 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -407,7 +421,7 @@
 			);
 			name = OneSignalNotificationServiceExtension;
 			productName = OneSignalNotificationServiceExtension;
-			productReference = 963483E62BF45ED800A6CD0E /* OneSignalNotificationServiceExtension.appex */;
+			productReference = 962707E72CFF0E0700873348 /* OneSignalNotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -417,7 +431,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -427,8 +441,8 @@
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
 					};
-					963483E52BF45ED800A6CD0E = {
-						CreatedOnToolsVersion = 15.0;
+					962707E62CFF0E0700873348 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -447,7 +461,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* neocafe */,
 				00E356ED1AD99517003FC87E /* neocafeTests */,
-				963483E52BF45ED800A6CD0E /* OneSignalNotificationServiceExtension */,
+				962707E62CFF0E0700873348 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -516,7 +530,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		963483E42BF45ED800A6CD0E /* Resources */ = {
+		962707E52CFF0E0700873348 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -725,11 +739,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		963483E22BF45ED800A6CD0E /* Sources */ = {
+		962707E32CFF0E0700873348 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				963483E92BF45ED800A6CD0E /* NotificationService.swift in Sources */,
+				962707EA2CFF0E0700873348 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,10 +755,10 @@
 			target = 13B07F861A680F5B00A75B9A /* neocafe */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
-		963483EC2BF45ED800A6CD0E /* PBXTargetDependency */ = {
+		962707ED2CFF0E0700873348 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 963483E52BF45ED800A6CD0E /* OneSignalNotificationServiceExtension */;
-			targetProxy = 963483EB2BF45ED800A6CD0E /* PBXContainerItemProxy */;
+			target = 962707E62CFF0E0700873348 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 962707EC2CFF0E0700873348 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -822,7 +836,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = neocafe/neocafe.entitlements;
-				CURRENT_PROJECT_VERSION = 87;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WZUVY28PG4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -839,7 +853,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -861,8 +875,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = neocafe/neocafe.entitlements;
-				CURRENT_PROJECT_VERSION = 87;
+				CODE_SIGN_ENTITLEMENTS = neocafe/neocafeRelease.entitlements;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WZUVY28PG4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -878,7 +892,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1031,7 +1045,7 @@
 			};
 			name = Release;
 		};
-		963483EF2BF45ED800A6CD0E /* Debug */ = {
+		962707F02CFF0E0700873348 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1041,7 +1055,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1052,7 +1065,7 @@
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1062,7 +1075,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tea.thousand.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spa.sky.development.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -1073,7 +1086,7 @@
 			};
 			name = Debug;
 		};
-		963483F02BF45ED800A6CD0E /* Release */ = {
+		962707F12CFF0E0700873348 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1083,7 +1096,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1095,7 +1107,7 @@
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1104,7 +1116,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tea.thousand.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spa.sky.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1114,7 +1126,7 @@
 			};
 			name = Release;
 		};
-		963483F12BF45ED800A6CD0E /* dev */ = {
+		962707F22CFF0E0700873348 /* dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1124,7 +1136,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -1137,7 +1148,7 @@
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1146,7 +1157,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tea.thousand.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spa.sky.development.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1232,7 +1243,7 @@
 				CODE_SIGN_ENTITLEMENTS = neocafe/neocafe.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 87;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WZUVY28PG4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1248,7 +1259,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1327,12 +1338,12 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = dev;
 		};
-		963483EE2BF45ED800A6CD0E /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+		962707EF2CFF0E0700873348 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				963483EF2BF45ED800A6CD0E /* Debug */,
-				963483F02BF45ED800A6CD0E /* Release */,
-				963483F12BF45ED800A6CD0E /* dev */,
+				962707F02CFF0E0700873348 /* Debug */,
+				962707F12CFF0E0700873348 /* Release */,
+				962707F22CFF0E0700873348 /* dev */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = dev;
