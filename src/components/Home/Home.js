@@ -406,7 +406,7 @@ const Home = ({navigation}) => {
     };
     dispatch(getListVoucherAction(body));
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     initUser();
 
     skipForceUpdate();
@@ -512,9 +512,9 @@ const Home = ({navigation}) => {
   const initUser = async () => {
     const tempUser = await asyncStorage.getUser();
     setCurrentUser(tempUser ? tempUser : {custid: -1});
-    if (!currentShop) {
-      getListShops();
-    }
+    // if (!currentShop) {
+    getListShops();
+    // }
     // dispatch(checkAffiliate(tempUser?.custid));
   };
   useEffect(() => {
@@ -570,15 +570,15 @@ const Home = ({navigation}) => {
   // CHECK STATUS OF LISTING CATEGORY AND SHOP
   // ONLY CALL FUNCTION WHEN STATUS WENT WRONG
   const getListShops = () => {
-    if (currentUser && currentUser?.custid !== -1) {
-      const bodyListShop = {
-        lat: currentLocation.latitude,
-        long: currentLocation.longitude,
-        custid: currentUser?.custid,
-      };
-      dispatch(getListShop(bodyListShop));
-      dispatch(getListShopShowMoney(bodyListShop));
-    }
+    // if (currentUser && currentUser?.custid !== -1) {
+    const bodyListShop = {
+      lat: currentLocation.latitude,
+      long: currentLocation.longitude,
+      custid: currentUser?.custid,
+    };
+    dispatch(getListShop(bodyListShop));
+    dispatch(getListShopShowMoney(bodyListShop));
+    // }
   };
 
   //BACK TO THE LOGIN SCREEN FOR THE FIRST LOG IN
@@ -618,10 +618,13 @@ const Home = ({navigation}) => {
     if (currentUser?.custid !== -1) {
       dispatch(checkAffiliate(currentUser?.custid));
     }
-  }, []);
+  }, [currentUser]);
+  console.log('g')
 
-  return messageCheckAffiliate?.ref_phone != null ||
-    messageCheckAffiliate?.ref_phone != '' ? (
+  return (messageCheckAffiliate?.ref_phone != null &&
+    messageCheckAffiliate?.ref_phone !== undefined &&
+    messageCheckAffiliate?.ref_phone !== '') ||
+    currentUser?.custid === -1 ? (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Header
         listMessage={listMessage}

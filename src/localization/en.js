@@ -23,9 +23,9 @@ export default {
     orderFailure: 'Order failed, please try again!',
     rateOrderQuestion: 'Do you want to rate the order',
     updateNotification:
-      'The Trà 1000M app has a newly updated version. Would you like to use the new version immediately?',
+      'The Spa Sky app has a newly updated version. Would you like to use the new version immediately?',
     finish: 'Finish',
-    suitableCafe: 'Suitable Trà 1000M locations for you',
+    suitableCafe: 'Suitable Spa Sky locations for you',
     address: 'Address',
     shippingAddress: 'Shipping Address',
     loginNotification: 'You need to log in to experience features on the app',
@@ -100,8 +100,8 @@ export default {
       'An error occurred during the verification process. Please contact the service personnel',
   },
   locationScreen: {
-    question: 'Allow Trà 1000M to use your location?',
-    subtitle: 'Allow Trà 1000M to know your location to find the nearest store.',
+    question: 'Allow Spa Sky to use your location?',
+    subtitle: 'Allow Spa Sky to know your location to find the nearest store.',
     turnonGPS: 'Turn on GPS',
   },
   homeScreen: {
@@ -226,7 +226,7 @@ export default {
   },
   cashInScreen: {
     recharge: 'Top Up',
-    useAtAll: 'Used at all Trà 1000M stores',
+    useAtAll: 'Used at all Spa Sky stores',
     atStore: 'At Store',
     loadToStore: 'Load into store',
     pointNumber: 'Number of Points to deposit',
@@ -240,7 +240,7 @@ export default {
     successfulTransaction: 'Successful transaction',
     tradingCode: 'Trading code',
     transactionInProgress: 'Transaction in progress',
-    sorry: 'Trà 1000M regrets this',
+    sorry: 'Spa Sky regrets this',
     processForOrder: 'The payment process for order',
     please:
       'is being processed, please wait a few minutes before reopening the app',

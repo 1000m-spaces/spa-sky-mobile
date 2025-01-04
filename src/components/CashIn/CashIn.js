@@ -1,4 +1,4 @@
-import {React, useCallback, useEffect, useRef, useState} from 'react';
+import { React, useCallback, useEffect, useRef, useState } from 'react';
 import {
   SafeAreaView,
   FlatList,
@@ -24,8 +24,8 @@ import {
 import strings from 'localization/Localization';
 import Colors from 'theme/Colors';
 import Images from 'common/Images/Images';
-import {formatMoney, heightDevice, logo, widthDevice} from 'assets/constans';
-import {useDispatch, useSelector} from 'react-redux';
+import { formatMoney, heightDevice, logo, widthDevice } from 'assets/constans';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getCurrentShop,
   getErrorCreateMomo,
@@ -52,14 +52,14 @@ import {
   resetCreateCashinMomo,
   resetGetUrlPayment,
 } from 'store/actions';
-import {asyncStorage} from 'store/index';
+import { asyncStorage } from 'store/index';
 import Status from 'common/Status/Status';
 import ConfirmationModal from 'common/ConfirmationModal/ConfirmationModal';
 import Loading from 'common/Loading/Loading';
 import ModalStatusOrder from 'common/ModalStatusOrder/ModalStatusOrder';
 import ShopItem from 'common/ShopItem/ShopItem';
 import styles from './styles';
-const CashIn = ({navigation}) => {
+const CashIn = ({ navigation }) => {
   const dispatch = useDispatch();
   const currentUser = useRef(null);
   const currentShop = useSelector(state => getCurrentShop(state));
@@ -77,7 +77,7 @@ const CashIn = ({navigation}) => {
 
   //Pay Momo
   const [indexMoney, setIndexMoney] = useState(null);
-  const [itemSelected, setItemSelected] = useState({prodid: -1});
+  const [itemSelected, setItemSelected] = useState({ prodid: -1 });
   const listMoneyOnline = useSelector(state => isListMoneyOnline(state));
   const statusCreateCashinOrder = useSelector(state =>
     getStatusCreateCashinOrder(state),
@@ -206,7 +206,7 @@ const CashIn = ({navigation}) => {
             data={listMoneyOnline}
             keyExtractor={item => `${item}`}
             showsVerticalScrollIndicator={true}
-            renderItem={({item, index}) => {
+            renderItem={({ item, index }) => {
               return (
                 <TouchableOpacity
                   onPress={() => {
@@ -304,7 +304,7 @@ const CashIn = ({navigation}) => {
     dispatch(resetGetUrlPayment());
   };
 
-  const renderShopItem = ({item, index}) => {
+  const renderShopItem = ({ item, index }) => {
     return (
       <ShopItem
         data={item}
@@ -354,7 +354,7 @@ const CashIn = ({navigation}) => {
                 source={logo}
                 style={styles.imageLogo}
               />
-              <View style={{width: '80%'}}>
+              <View style={{ width: '80%' }}>
                 <View style={styles.wrapeprNameStore}>
                   <TextSemiBold style={styles.nameStore}>
                     {shopSelect.restname}
@@ -384,7 +384,7 @@ const CashIn = ({navigation}) => {
             <View
               style={[
                 styles.wrapperInputMoney,
-                showListMoney && {height: 6 * 48},
+                showListMoney && { height: 6 * 48 },
               ]}>
               <TouchableOpacity
                 onPress={() => setShowListMoney(prev => (prev = !prev))}
@@ -427,7 +427,7 @@ const CashIn = ({navigation}) => {
               <TextNormalSemiBold>
                 {strings.cashInScreen.paymentAmount}
               </TextNormalSemiBold>
-              <TextMoneyBold style={{color: Colors.buttonTextColor}}>
+              <TextMoneyBold style={{ color: Colors.buttonTextColor }}>
                 {formatMoney(moneyShow) + ' đ'}
               </TextMoneyBold>
             </View>
@@ -440,7 +440,7 @@ const CashIn = ({navigation}) => {
             </TextNormalSemiBold>
             <View style={styles.wrapperIconPayment}>
               <Svg name={'icon_momo'} size={32} color={Colors.textGrayColor} />
-              <TextNormal style={{marginLeft: 5}}>{'Momo'}</TextNormal>
+              <TextNormal style={{ marginLeft: 5 }}>{'Momo'}</TextNormal>
             </View>
             <Icons
               color={'black'}
@@ -453,7 +453,7 @@ const CashIn = ({navigation}) => {
       ) : (
         <View style={styles.containerContent}>
           {/* STORE CASH IN */}
-          <TouchableOpacity style={styles.wrapperStore} onPress={() => {}}>
+          <TouchableOpacity style={styles.wrapperStore} onPress={() => { }}>
             <View style={styles.wrapperTitleStore}>
               <TextNormalSemiBold>
                 {strings.cashInScreen.storeConfirmation}
@@ -465,7 +465,7 @@ const CashIn = ({navigation}) => {
                 source={logo}
                 style={styles.imageLogo}
               />
-              <View style={{width: '85%'}}>
+              <View style={{ width: '85%' }}>
                 <View style={styles.wrapeprNameStore}>
                   <TextSemiBold style={styles.nameStore}>
                     {shopSelect.restname}
@@ -518,7 +518,7 @@ const CashIn = ({navigation}) => {
               <TextNormalSemiBold>
                 {strings.cashInScreen.paymentAmount}
               </TextNormalSemiBold>
-              <TextMoneyBold style={{color: Colors.buttonTextColor}}>
+              <TextMoneyBold style={{ color: Colors.buttonTextColor }}>
                 {formatMoney(moneyShow) + ' đ'}
               </TextMoneyBold>
             </View>
@@ -532,14 +532,14 @@ const CashIn = ({navigation}) => {
           alignItems: 'center',
           marginTop: 20,
         }}>
-        <TextSmallEleven style={{textAlign: 'center'}}>
+        <TextSmallEleven style={{ textAlign: 'center' }}>
           Bằng việc thanh toán, Quý khách đã đồng ý với{' '}
           <TextSmallEleven
             onPress={() => Linking.openURL('http://neocafe.tech/policy')}
-            style={{color: '#00A2F3'}}>
+            style={{ color: '#00A2F3' }}>
             Điều khoản về sử dụng
           </TextSmallEleven>{' '}
-          E-Voucher tại Trà 1000M
+          E-Voucher tại Spa Sky
         </TextSmallEleven>
       </View>
       {!confirm ? (
@@ -548,8 +548,8 @@ const CashIn = ({navigation}) => {
           onPress={() => setConfirm(true)}
           // onPress={() => Linking.openURL('neocafe://login')}
           disabled={moneyShow === 0}
-          style={[styles.orderButton, {opacity: moneyShow === 0 ? 0.6 : 1}]}>
-          <TextSemiBold style={{color: Colors.whiteColor}}>
+          style={[styles.orderButton, { opacity: moneyShow === 0 ? 0.6 : 1 }]}>
+          <TextSemiBold style={{ color: Colors.whiteColor }}>
             {strings.accountScreen.orderNow} {formatMoney(moneyShow)}đ
           </TextSemiBold>
         </TouchableOpacity>
@@ -567,10 +567,10 @@ const CashIn = ({navigation}) => {
               opacity: disablePay ? 0.6 : 1,
             },
           ]}>
-          <View style={{padding: 1, backgroundColor: 'white', borderRadius: 2}}>
+          <View style={{ padding: 1, backgroundColor: 'white', borderRadius: 2 }}>
             <Svg name={'icon_momo'} size={25} color={Colors.textGrayColor} />
           </View>
-          <TextSemiBold style={{color: Colors.whiteColor, marginLeft: 8}}>
+          <TextSemiBold style={{ color: Colors.whiteColor, marginLeft: 8 }}>
             {strings.cashInScreen.confirmationAndPayment}
           </TextSemiBold>
         </TouchableOpacity>
@@ -579,13 +579,13 @@ const CashIn = ({navigation}) => {
         visible={showPaymentGetway}
         onPressOutSide={() => setShowGetway(false)}>
         <View style={styles.modalView}>
-          <TextNormalSemiBold style={{alignSelf: 'center'}}>
+          <TextNormalSemiBold style={{ alignSelf: 'center' }}>
             {strings.cashInScreen.paymentMethods}
           </TextNormalSemiBold>
           <TouchableOpacity
             // onPress={() => handleSeclectLanguage('en')}
             style={[styles.wrapperGetway]}>
-            <TextNormalSemiBold style={{color: Colors.redColor}}>
+            <TextNormalSemiBold style={{ color: Colors.redColor }}>
               {'Momo'}
             </TextNormalSemiBold>
             <Icons
@@ -628,7 +628,7 @@ const CashIn = ({navigation}) => {
             marginHorizontal: 15,
             borderRadius: 10,
           }}>
-          <View style={{height: heightDevice * 0.6}}>
+          <View style={{ height: heightDevice * 0.6 }}>
             <View
               style={{
                 width: '100%',
@@ -639,7 +639,7 @@ const CashIn = ({navigation}) => {
                 borderTopLeftRadius: 10,
                 borderTopRightRadius: 10,
               }}>
-              <TextNormalSemiBold style={{color: 'white', fontSize: 16}}>
+              <TextNormalSemiBold style={{ color: 'white', fontSize: 16 }}>
                 {strings.common.selectStore}
               </TextNormalSemiBold>
             </View>

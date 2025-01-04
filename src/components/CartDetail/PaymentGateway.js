@@ -15,7 +15,7 @@ import Images from 'common/Images/Images';
 
 const items = [
   {id: 3, name: 'Zalopay', icon: 'zalo_pay'},
-  {id: 4, name: 'Apple Pay', icon: 'apple_pay'},
+  // {id: 4, name: 'Apple Pay', icon: 'apple_pay'},
   // {id: 2, name: 'MoMo', icon: 'icon_momo'},
   {id: 1, name: 'Chuyển khoản', icon: 'viet_qr'},
   {id: 5, name: 'Thẻ quốc tế', icon: 'master_icon'},

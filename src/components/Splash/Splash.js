@@ -64,9 +64,6 @@ const Splash = props => {
     // strings.setLanguage('en');
     checkUpdate();
     dispatch(getVersion(os, version, parseFloat(PARTNER_ID)));
-    if (currentUser?.custid !== -1) {
-      dispatch(checkAffiliate(currentUser?.custid));
-    }
   }, []);
 
   //Check update CodePush
@@ -190,6 +187,10 @@ const Splash = props => {
     if (currentShop && currentShop?.restid && showDownload === false) {
       initListProductMenu();
     }
+    // call info affiliate
+    if (currentUser?.current?.custid !== -1) {
+      dispatch(checkAffiliate(currentUser?.current?.custid));
+    }
   }, [currentShop, showDownload]);
   // GET EXPIRE PRODUCT AFTER CURRENT SHOP CHANGE
 
@@ -227,14 +228,15 @@ const Splash = props => {
     setTimeout(() => {
       props.navigation.reset({
         index: 0,
-        routes: [
-          {
-            name:
-              currentUser?.current?.custid === -1
-                ? NAVIGATION_LOGIN
-                : NAVIGATION_MAIN,
-          },
-        ],
+        // routes: [
+        //   {
+        //     name:
+        //       currentUser?.current?.custid === -1
+        //         ? NAVIGATION_LOGIN
+        //         : NAVIGATION_MAIN,
+        //   },
+        // ],
+        routes: [{name: NAVIGATION_MAIN}],
       });
     }, 800);
   };

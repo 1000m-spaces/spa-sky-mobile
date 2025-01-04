@@ -1,8 +1,8 @@
 import RNSettings from 'react-native-settings';
-import {PermissionsAndroid, Alert, Linking} from 'react-native';
+import { PermissionsAndroid, Alert, Linking } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
-import {getDistance} from 'geolib';
-import {versionSystem, isAndroid} from 'assets/constans';
+import { getDistance } from 'geolib';
+import { versionSystem, isAndroid } from 'assets/constans';
 
 export const checkEnableLocation = async callback => {
   RNSettings.getSetting(RNSettings.LOCATION_SETTING).then(async result => {
@@ -21,7 +21,7 @@ export const checkEnableLocation = async callback => {
               let configPopupLocation = {
                 title: 'Bật GPS',
                 message:
-                  'Chúng tôi cần sử dụng GPS để tìm kiếm địa chỉ Trà 1000M gần bạn nhất',
+                  'Chúng tôi cần sử dụng GPS để tìm kiếm địa chỉ Spa Sky gần bạn nhất',
                 buttonPositive: 'OK',
               };
               const granted = await PermissionsAndroid.request(
@@ -79,7 +79,7 @@ const getLocation = callback => {
         callback(null);
       }
     },
-    {enableHighAccuracy: true, timeout: 20000, maximumAge: 10000},
+    { enableHighAccuracy: true, timeout: 20000, maximumAge: 10000 },
   );
 };
 
@@ -101,7 +101,7 @@ export const turnOnLocation = async callback => {
         let configPopupLocation = {
           title: 'Bật GPS',
           message:
-            'Chúng tôi cần sử dụng GPS để tìm kiếm địa chỉ Trà 1000M gần bạn nhất',
+            'Chúng tôi cần sử dụng GPS để tìm kiếm địa chỉ Spa Sky gần bạn nhất',
           buttonPositive: 'OK',
         };
         const granted = await PermissionsAndroid.request(
@@ -121,8 +121,8 @@ export const turnOnLocation = async callback => {
               clearTimeout(time);
               time = 0;
               Alert.alert(
-                'Trà 1000M',
-                'Quyền định vị không được cấp cho Trà 1000M',
+                'Spa Sky',
+                'Quyền định vị không được cấp cho Spa Sky',
               );
             }, 250);
           }

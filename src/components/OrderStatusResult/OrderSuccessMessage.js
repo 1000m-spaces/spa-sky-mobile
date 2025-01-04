@@ -15,7 +15,7 @@ import {widthDevice} from 'assets/constans';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const STEPS = [
-  'Bật thông báo trên điện thoại để nhận tin từ app Trà 1000M',
+  'Bật thông báo trên điện thoại để nhận tin từ SpaSky',
   'Mời bạn đến quầy để nhận món',
   'Cung cấp mã đơn hàng cho nhân viên',
 ];

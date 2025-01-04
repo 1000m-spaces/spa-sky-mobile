@@ -16,7 +16,7 @@ export default {
     goodAfternoon: 'Buổi chiều tốt lành',
     goodNight: 'Buổi tối tốt lành',
     updateNotification:
-      'App Trà 1000M có 1 phiên bản mới cập nhật. Bạn có muốn sử dụng ngay phiên bản mới không.',
+      'App Spa Sky có 1 phiên bản mới cập nhật. Bạn có muốn sử dụng ngay phiên bản mới không.',
     deliveryAddress: 'Địa chỉ nhận hàng',
     rateOrderQuestion: 'Bạn có muốn đánh giá đơn hàng',
     orderSuccess: 'Đặt hàng thành công',
@@ -32,7 +32,7 @@ export default {
       'Số dư E-Voucher 1 của bạn không đủ để đăng ký gói. Vui lòng nạp thêm để tiếp tục dịch vụ.',
     over2kmWarning:
       'Địa chỉ của bạn nằm ngoài bán kính 2km, chúng tôi sẽ thông báo đến bạn khi có Quán mới gần bạn nhất.',
-    suitableCafe: 'Quán Trà 1000M phù hợp với bạn',
+    suitableCafe: 'Quán Spa Sky phù hợp với bạn',
     findDeliveryAddress: 'Tìm kiếm địa chỉ nhận hàng ...',
     categories: 'Danh mục',
     notValidPhoneReferal: ' Số điện thoại người giới thiệu không hợp lệ.',
@@ -101,9 +101,9 @@ export default {
       'Xảy ra lỗi trong quá trình xác thực. Vui lòng liên hệ nhân viên phục vụ',
   },
   locationScreen: {
-    question: 'Cho phép “Trà 1000M” sử dụng vị trí của bạn?',
+    question: 'Cho phép “Spa Sky” sử dụng vị trí của bạn?',
     subtitle:
-      'Cho phép “Trà 1000M” được biết vị trí của bạn để tìm của hàng gần nhất.',
+      'Cho phép “Spa Sky” được biết vị trí của bạn để tìm của hàng gần nhất.',
     turnonGPS: 'Bật GPS',
   },
   homeScreen: {
@@ -240,7 +240,7 @@ export default {
     successfulTransaction: 'Giao dịch thành công',
     tradingCode: 'Mã giao dịch',
     transactionInProgress: 'Giao dịch đang thực hiện',
-    sorry: 'Trà 1000M rất tiếc vì điều này',
+    sorry: 'Spa Sky rất tiếc vì điều này',
     processForOrder: 'Quá trình thanh toán đơn',
     please:
       'đang được xử lý, quý khách vui lòng đợi trong ít phút trước khi mở lại app',

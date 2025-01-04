@@ -12,15 +12,12 @@
     "ios": "node ./intro.js && npx react-native run-ios",
     "clean:android": "cd android &&./gradlew clean && cd ..",
     "clean:ios": "cd ios && xcodebuild clean && cd ..",
-    "codePush:android:prod": "appcenter codepush release-react -a ciaolinkdev/TeaThousand_Android -d Production",
-    "codePush:android:dev": "appcenter codepush release-react -a ciaolinkdev/TeaThousand_Android -d Staging",
-    "codePush:android:dev:force": "appcenter codepush release-react -a ciaolinkdev/NeoCafe_Android -d Develop --mandatory",
-    "codePush:ios:prod": "appcenter codepush release-react -a ciaolinkdev/TeaThousand_ios -d Production",
-    "codePush:ios:dev": "appcenter codepush release-react -a ciaolinkdev/TeaThousand_ios -d Staging",
+    "codePush:android:prod": "appcenter codepush release-react -a ciaolinkdev/SpaSky_Android -d Production",
+    "codePush:android:dev": "appcenter codepush release-react -a ciaolinkdev/SpaSky_Android -d Development",
+    "codePush:ios:prod": "appcenter codepush release-react -a ciaolinkdev/SpaSky_Ios -d Production",
+    "codePush:ios:dev": "appcenter codepush release-react -a ciaolinkdev/SpaSky_Ios -d Development",
     "build:dev:ios": "react-native run-ios --scheme dev --configuration dev",
-    "build:prod:ios": "react-native run-ios --scheme neocafe --configuration Release",
-    "build:dev:android": "react-native run-android --variant=dev --appId 'com.neocafe.development'",
-    "build:prod:android": "react-native run-android --variant=release --appId 'com.neocafe'"
+    "build:prod:ios": "react-native run-ios --scheme neocafe --configuration Release"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4.6.3",

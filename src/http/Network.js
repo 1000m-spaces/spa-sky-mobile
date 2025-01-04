@@ -1,4 +1,4 @@
-import {Alert} from 'react-native';
+import { Alert } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 
 //Xử lý task khi có mạng, ko thì show alert
@@ -10,7 +10,7 @@ export const handleTaskRequireNetwork = callback => {
     } else {
       console.log('######disconnect:', state);
       Alert.alert(
-        'Trà 1000m',
+        'Spa Sky',
         'Kết nối mạng không ổn định. Vui lòng thử lại',
         [
           {
@@ -20,7 +20,7 @@ export const handleTaskRequireNetwork = callback => {
             },
           },
         ],
-        {cancelable: false},
+        { cancelable: false },
       );
     }
   });

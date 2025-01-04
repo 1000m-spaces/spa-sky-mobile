@@ -7,9 +7,9 @@ import {
 } from 'assets/constans';
 import Images from 'common/Images/Images';
 import SeparatorLine from 'common/SeparatorLine/SeparatorLine';
-import {React, useRef, useEffect, useState} from 'react';
-import {NAVIGATION_MAIN} from 'navigation/routes';
-import {useDispatch, useSelector} from 'react-redux';
+import { React, useRef, useEffect, useState } from 'react';
+import { NAVIGATION_MAIN } from 'navigation/routes';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getListShop,
   getListShopShowMoney,
@@ -19,10 +19,10 @@ import {
   selectDeliveryAction,
   setCurrentShop,
 } from 'store/actions';
-import {asyncStorage} from 'store/index';
+import { asyncStorage } from 'store/index';
 import ShopItem from 'common/ShopItem/ShopItem';
-import {TextNormal, TextSemiBold} from 'common/Text/TextFont';
-import {getProducAllByShop, setCurrentLocation} from 'store/actions';
+import { TextNormal, TextSemiBold } from 'common/Text/TextFont';
+import { getProducAllByShop, setCurrentLocation } from 'store/actions';
 import {
   View,
   FlatList,
@@ -41,23 +41,23 @@ import {
 } from 'store/selectors';
 import MyModal from 'common/MyModal/MyModal';
 // import Toast from 'react-native-simple-toast';
-import {checkEnableLocation, turnOnLocation} from 'utils/LocationConfig';
+import { checkEnableLocation, turnOnLocation } from 'utils/LocationConfig';
 import Status from 'common/Status/Status';
 import ProgressScreen from 'common/Loading/ProgressScreen';
 import strings from 'localization/Localization';
-import HttpClient, {setDefaultLanguage} from 'http/HttpClient';
+import HttpClient, { setDefaultLanguage } from 'http/HttpClient';
 import Colors from 'theme/Colors';
 
-const AccessLocation = ({navigation}) => {
+const AccessLocation = ({ navigation }) => {
   const appState = useRef(AppState.currentState);
   const [showLoading, setShowLoading] = useState(false);
   const [modalShop, setModalShop] = useState(false);
-  const [tempStore, setTempStore] = useState({restid: -1});
+  const [tempStore, setTempStore] = useState({ restid: -1 });
   const [tempIndex, setTempIndex] = useState(-1);
   const [hiddeShop, setHiddeShop] = useState(true);
   const dispatch = useDispatch();
   const [theFirstLogin, setFirstLogin] = useState(false);
-  const currentUser = useRef({custid: -1});
+  const currentUser = useRef({ custid: -1 });
   const currentShop = useSelector(state => getCurrentShop(state));
   const listShopShowMoney = useSelector(state => isListShopShowMoney(state));
   const statusSetLocation = useSelector(state => getStatusSetLocation(state));
@@ -107,7 +107,7 @@ const AccessLocation = ({navigation}) => {
         dispatch(setCurrentLocation(loc));
       } else {
         Alert.alert(
-          'Trà 1000M',
+          'Spa Sky',
           'Vui lòng cung cấp quyền truy cập dịch vụ định vị để có trải nghiệm tốt hơn',
           [
             {
@@ -117,7 +117,7 @@ const AccessLocation = ({navigation}) => {
               },
             },
           ],
-          {cancelable: false},
+          { cancelable: false },
         );
       }
     });
@@ -126,7 +126,7 @@ const AccessLocation = ({navigation}) => {
     const user = await asyncStorage.getUser();
     const firstLogin = await asyncStorage.getTheFirstLogin();
     setFirstLogin(firstLogin);
-    currentUser.current = user || {custid: -1};
+    currentUser.current = user || { custid: -1 };
     // console.log('set up user: ', currentUser.current);
     const language = currentUser?.current?.language
       ? currentUser.current?.language
@@ -177,7 +177,7 @@ const AccessLocation = ({navigation}) => {
     }
 
     try {
-      const {data} = await HttpClient.get(
+      const { data } = await HttpClient.get(
         `${GOOGLEMAP_URL}${currentLocation.latitude},${currentLocation.longitude}&key=${GOOGLE_MAP_KEY}`,
       );
       if (data && data.status === 'OK') {
@@ -207,8 +207,8 @@ const AccessLocation = ({navigation}) => {
         custid: theFirstLogin
           ? 0
           : currentUser?.current?.custid
-          ? currentUser?.current?.custid
-          : 0,
+            ? currentUser?.current?.custid
+            : 0,
       };
       dispatch(getListShop(bodyListShop));
     }
@@ -237,8 +237,8 @@ const AccessLocation = ({navigation}) => {
         custid: theFirstLogin
           ? 0
           : currentUser?.current?.custid
-          ? currentUser?.current?.custid
-          : 0,
+            ? currentUser?.current?.custid
+            : 0,
         restid: currentShop?.restid,
         categoryid: null,
       }),
@@ -253,7 +253,7 @@ const AccessLocation = ({navigation}) => {
       );
       const storedRecommend = await asyncStorage.getListRecommned();
       if (storedRecommend) {
-        const {list1, created_at, index_recommend} = storedRecommend;
+        const { list1, created_at, index_recommend } = storedRecommend;
         if (list1) {
           dispatch(
             getRecommendedProduct({
@@ -282,7 +282,7 @@ const AccessLocation = ({navigation}) => {
     }
     navigation.reset({
       index: 0,
-      routes: [{name: NAVIGATION_MAIN}],
+      routes: [{ name: NAVIGATION_MAIN }],
     });
   };
   const handleModalShop = () => {
@@ -303,10 +303,10 @@ const AccessLocation = ({navigation}) => {
     setTempStore(item);
   };
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
       <View style={styles.imageStyle}>
         {statusSetLocation !== Status.LOADING && showLoading === false && (
-          <View style={{marginTop: heightDevice * 0.1, padding: 10}}>
+          <View style={{ marginTop: heightDevice * 0.1, padding: 10 }}>
             <View
               style={{
                 width: 102,
@@ -368,7 +368,7 @@ const AccessLocation = ({navigation}) => {
               data={listShopShowMoney}
               showsVerticalScrollIndicator={false}
               keyExtractor={(_, index) => index.toString()}
-              renderItem={({item, index}) => {
+              renderItem={({ item, index }) => {
                 return (
                   <ShopItem
                     data={item}

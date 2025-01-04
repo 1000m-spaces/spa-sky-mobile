@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image, Linking, Text, Platform} from 'react-native';
 import styles from './styles';
 import Button from './Button';
-import {tra_logo} from 'assets/constans';
+import {logo_splash_spa} from 'assets/constans';
 import MyModal from 'common/MyModal/MyModal';
 import {TextNormal} from 'common/Text/TextFont';
 
@@ -24,7 +24,7 @@ const PopUpVersion = ({
       }>
       <View style={styles.viewContent}>
         <View>
-          <Image style={styles.image} source={tra_logo} />
+          <Image style={styles.image} source={logo_splash_spa} />
           <TextNormal style={styles.textVerApp}>
             Version: {versionApp}
           </TextNormal>
@@ -38,7 +38,7 @@ const PopUpVersion = ({
               onPressEvent('false');
               if (Platform.OS === 'android') {
                 Linking.openURL(
-                  'https://play.google.com/store/apps/details?id=com.tea.thousand',
+                  'https://play.google.com/store/apps/details?id=com.spa.sky',
                 );
               } else {
                 Linking.openURL(
@@ -68,7 +68,7 @@ const PopUpVersion = ({
                 // asyncStorage.setSkipForceUpdate('false')
                 if (Platform.OS === 'android') {
                   Linking.openURL(
-                    'https://play.google.com/store/apps/details?id=com.tea.thousand',
+                    'https://play.google.com/store/apps/details?id=com.spa.sky',
                   );
                 } else {
                   Linking.openURL(

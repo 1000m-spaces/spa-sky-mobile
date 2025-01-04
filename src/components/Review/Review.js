@@ -11,7 +11,7 @@
 // } from 'common/Text/TextFont';
 // import {star} from 'assets/constans';
 // import {launchImageLibrary} from 'react-native-image-picker';
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // import { Rating, AirbnbRating } from 'react-native-ratings';
 // import {useDispatch, useSelector} from 'react-redux';
 import {
@@ -48,7 +48,7 @@ import {
 //   {id: 1, title: 'Phục vụ', en_title: 'Service', rating: 0},
 //   {id: 1, title: 'Không gian', en_title: 'Atmosphere', rating: 0},
 // ];
-const Review = ({navigation, route}) => {
+const Review = ({ navigation, route }) => {
   // const [listImageUploaded, setImageUploaded] = useState([]);
   // const currentUser = useRef({custid: -1});
   // const dispatch = useDispatch();
@@ -209,9 +209,9 @@ const Review = ({navigation, route}) => {
   //   );
   // };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       {/* <Header
-        title={'Trà 1000M'}
+        title={'Spa Sky'}
         content={currentShop?.restname}
         navigation={navigation}
         isMyFavorite={true}
