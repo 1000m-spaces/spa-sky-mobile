@@ -84,7 +84,7 @@ class OrderController {
       console.log('zalo payment data:::', data);
       return {success: true, data};
     } catch (error) {
-      // console.log('ZALO ERRORLL', error);
+      console.log('ZALO ERRORLL', error);
       return {
         success: false,
         error: error.toString(),

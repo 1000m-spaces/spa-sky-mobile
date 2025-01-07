@@ -15,7 +15,7 @@ import Icons from 'common/Icons/Icons';
 import {useDispatch, useSelector} from 'react-redux';
 import Status from 'common/Status/Status';
 import {asyncStorage} from 'store';
-import {NAVIGATION_HOME} from 'navigation/routes';
+import {NAVIGATION_HOME, NAVIGATION_MAIN} from 'navigation/routes';
 import {applyAffiliateV2} from 'store/actions';
 import {getErrorApplyingAffiliate, getStatusAffiliate} from 'store/selectors';
 import CustomButton from 'common/CustomButton/CustomButton';
@@ -79,7 +79,10 @@ const Connection = ({navigation, route}) => {
 
   useEffect(() => {
     if (statusApplyAffiliate === Status.SUCCESS) {
-      navigation.navigate(NAVIGATION_HOME);
+      navigation.reset({
+        index: 0,
+        routes: [{name: NAVIGATION_MAIN}],
+      });
     }
   }, [statusApplyAffiliate]);
 
@@ -98,6 +101,11 @@ const Connection = ({navigation, route}) => {
       </View>
     );
   };
+
+  const skip = async () => {
+    navigation.navigate(NAVIGATION_MAIN);
+  };
+
   return (
     // <SafeAreaView style={styles.container}>
     //   {typeShow === 1 && (
@@ -145,13 +153,26 @@ const Connection = ({navigation, route}) => {
             <View
               style={{
                 paddingBottom: 30,
-                marginTop: heightDevice * 0.11,
+                marginTop: heightDevice * 0.1,
                 paddingHorizontal: 10,
               }}>
-              <TextNormal style={styles.textIntro1}>
+              {/* <TextNormal style={styles.textIntro1}>
                 {'Vui lòng nhập mã giới thiệu'}
+              </TextNormal> */}
+              <TextNormal style={styles.textIntro}>
+                {'Người giới thiệu'}
               </TextNormal>
-              <TextNormal style={styles.textIntro}>{'SPA-SKY'}</TextNormal>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: 10,
+                }}>
+                <Svg name={'image_doctor'} size={120} />
+              </View>
+              <TextNormal style={{fontSize: 14, marginTop: 20}}>
+                Thêm người giới thiệu để được hỗ trợ về sản phẩm tốt nhất
+              </TextNormal>
             </View>
             <View style={{paddingBottom: 10, alignItems: 'center'}}>
               <TouchableOpacity
@@ -187,6 +208,11 @@ const Connection = ({navigation, route}) => {
               styledButton={styles.buttonSubmitPhone}
               label={strings.common.continue}
             />
+            <TextNormal
+              onPress={skip}
+              style={{marginTop: 25, color: '#385EDE', fontSize: 15}}>
+              Bỏ qua
+            </TextNormal>
           </View>
         </View>
       </Pressable>

@@ -25,6 +25,44 @@
 		<string>zalo</string>
 		<string>zalopay</string>
 		<string>zalopay.api.v2</string>
+		<string>bidv.smartbanking.partner</string>
+		<string>vietinbankipay</string>
+		<string>mbbank</string>
+		<string>vietcombankmobile</string>
+		<string>bvbankdigimi</string>
+		<string>tcb</string>
+		<string>sacombankpay</string>
+		<string>agribankmobile</string>
+		<string>vpbankneo</string>
+		<string>acbone</string>
+		<string>abbankmobile</string>
+		<string>plus</string>
+		<string>baovietmobile</string>
+		<string>com.vnpay.eximbankomnimobile</string>
+		<string>hdbankmobile</string>
+		<string>ksbank</string>
+		<string>lv24h</string>
+		<string>msbmbank</string>
+		<string>nabqrtransfermoney</string>
+		<string>ncbizimobile</string>
+		<string>oceanbankmobilebanking</string>
+		<string>newomni-app</string>
+		<string>publicbankmobile</string>
+		<string>pvcb</string>
+		<string>saigonbankmobilebanking</string>
+		<string>seamobile</string>
+		<string>shbmobile</string>
+		<string>shinhanglbvnbank</string>
+		<string>scbmobilebanking</string>
+		<string>hydro</string>
+		<string>mightyapp</string>
+		<string>myvib2</string>
+		<string>vabmobilebanking</string>
+		<string>cake.vn</string>
+		<string>wvbs</string>
+		<string>coopbankmobile</string>
+		<string>vietbankmobilebanking</string>
+		<string>cimb</string>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>

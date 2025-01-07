@@ -17,7 +17,7 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-  [[ZaloPaySDK sharedInstance] initWithAppId:3850 uriScheme:@"tea://app/orderStatusResult" environment: ZPZPIEnvironment_Sandbox]; // Init ZPDK
+  [[ZaloPaySDK sharedInstance] initWithAppId:3850 uriScheme:@"spa://app/orderStatusResult" environment: ZPZPIEnvironment_Production]; // Init ZPDK
 
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];

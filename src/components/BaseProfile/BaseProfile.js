@@ -21,9 +21,10 @@ import {asyncStorage} from 'store/index';
 import Colors from 'theme/Colors';
 import moment from 'moment';
 import {useDispatch, useSelector} from 'react-redux';
-import {updateUserInformation} from 'store/actions';
-import {getStatusUpdateUser} from 'store/selectors';
+import {resetUpdateUser, updateUserInformation} from 'store/actions';
+import {getMessageCheckAffiliate, getStatusUpdateUser} from 'store/selectors';
 import Status from 'common/Status/Status';
+import {CommonActions} from '@react-navigation/native';
 const BaseProfile = ({navigation}) => {
   const [fullName, setFullName] = useState('');
   const [gender, setGender] = useState('');
@@ -32,6 +33,9 @@ const BaseProfile = ({navigation}) => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
   const statusUpdateUser = useSelector(state => getStatusUpdateUser(state));
+  const messageCheckAffiliate = useSelector(state =>
+    getMessageCheckAffiliate(state),
+  );
   // function formatBirthday(birthdayInput) {
   //   const bdArr = birthdayInput.substring(0, 10).split('-');
   //   return `${bdArr[0]}-${bdArr[1]}-${bdArr[2]}T00:00:00Z`;
@@ -52,9 +56,24 @@ const BaseProfile = ({navigation}) => {
   useEffect(() => {
     console.log('statusUpdateUser::', statusUpdateUser);
     if (statusUpdateUser === Status.SUCCESS) {
-      navigation.navigate(NAVIGATION_MAIN);
+      dispatch(resetUpdateUser());
+      nextScreen();
     }
   }, [statusUpdateUser]);
+
+  const nextScreen = async () => {
+    if (!messageCheckAffiliate?.ref_phone) {
+      navigation.navigate(NAVIGATION_CONNECTION, {type: 1});
+    } else {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: NAVIGATION_MAIN}],
+        }),
+      );
+    }
+  };
+
   const handleSubmitInfo = async () => {
     if (!fullName) {
       return;
@@ -69,7 +88,7 @@ const BaseProfile = ({navigation}) => {
     console.log('payload:::', payload);
     dispatch(updateUserInformation(payload));
     // await asyncStorage.setProfile(payload);
-    navigation.navigate(NAVIGATION_MAIN);
+    // navigation.navigate(NAVIGATION_MAIN);
   };
 
   return (

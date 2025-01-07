@@ -340,7 +340,7 @@ const CartDetail = ({navigation}) => {
       merchant_id: parseFloat(currentShop.shopownerid) || 0,
       order_id: `${orderCreatedInfo.order_id}`,
       phone: currentUser.current.custphone,
-      redirect_url: 'tea://app/orderStatusResult',
+      redirect_url: 'spa://app/orderStatusResult',
       user_id: currentUser.current.custid,
       voucher_code: currentOrder.voucher ? currentOrder.voucher.name : '',
     };
@@ -361,7 +361,7 @@ const CartDetail = ({navigation}) => {
       amount: payment.total,
       branch_name: currentShop?.restname || '',
       order_id: parseInt(orderCreatedInfo.order_id, 10),
-      return_url: 'tea://app/orderStatusResult',
+      return_url: 'spa://app/orderStatusResult',
       order_type: 'other',
       order_info: `${orderCreatedInfo.order_id}`,
       storeId: currentShop.momo_store_id,

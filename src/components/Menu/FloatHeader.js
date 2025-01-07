@@ -18,7 +18,7 @@ const FloatHeader = ({
   return (
     <View>
       <View style={styles.wrapperHeaderDelivery}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={handlePickUp}
           style={[
             styles.headerDelivery,
@@ -31,7 +31,7 @@ const FloatHeader = ({
             }}>
             Pick up
           </TextNormalSemiBold>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           onPress={handlePickUp}
           style={[

@@ -1,5 +1,5 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import React, { useEffect, useRef, useState } from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   TextNormal,
   TextNormalSemiBold,
@@ -17,21 +17,21 @@ import {
 import strings from 'localization/Localization';
 import styles from './styles';
 import ConfirmationModal from 'common/ConfirmationModal/ConfirmationModal';
-import { heightDevice, isAndroid } from 'assets/constans';
+import {heightDevice, isAndroid} from 'assets/constans';
 import Colors from 'theme/Colors';
 import {
   NAVIGATION_ACCESS_LOCATION,
   NAVIGATION_VERIFY_CODE,
 } from 'navigation/routes';
 import SeparatorLine from 'common/SeparatorLine/SeparatorLine';
-import { useDispatch, useSelector } from 'react-redux';
-import { isErrorSendOtp, isStatusSendPhone } from 'store/selectors';
-import { sendPhone } from 'store/actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {isErrorSendOtp, isStatusSendPhone} from 'store/selectors';
+import {sendPhone} from 'store/actions';
 import Status from 'common/Status/Status';
 import Svg from 'common/Svg/Svg';
 import CheckBox from '@react-native-community/checkbox';
 
-import { asyncStorage } from 'store/index';
+import {asyncStorage} from 'store/index';
 import CustomButton from 'common/CustomButton/CustomButton';
 const FOMART = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 const hotline = '+84971579233';
@@ -102,7 +102,7 @@ const Login = props => {
                 {'Nhập số điện thoại để tiếp tục đăng nhập'}
               </TextNormal>
             </View>
-            <View style={{ paddingBottom: 10, alignItems: 'center' }}>
+            <View style={{paddingBottom: 10, alignItems: 'center'}}>
               <TouchableOpacity
                 onPress={() => refInput.current.focus()}
                 style={styles.containerButtonInputPhone}>
@@ -125,12 +125,12 @@ const Login = props => {
               {(phone.match(/[a-z]/i) ||
                 FOMART.test(phone) ||
                 showPhoneError) && (
-                  <TextNormal style={styles.errorMessage}>
-                    {errorSendPhone
-                      ? errorSendPhone
-                      : 'Số điện thoại không hợp lệ'}
-                  </TextNormal>
-                )}
+                <TextNormal style={styles.errorMessage}>
+                  {errorSendPhone
+                    ? errorSendPhone
+                    : 'Số điện thoại không hợp lệ'}
+                </TextNormal>
+              )}
             </View>
           </View>
           <View style={[styles.viewButtonSubmitPhone]}>
@@ -152,7 +152,7 @@ const Login = props => {
                   width={20}
                   value={isAgreePolicy}
                 />
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{flexDirection: 'row'}}>
                   <TextNormal>{'Tôi đồng ý với điều khoản và '}</TextNormal>
                   <TextNormal style={styles.linkText1}>
                     {'chính sách bảo mật'}

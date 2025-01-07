@@ -285,7 +285,7 @@ const CashIn = ({ navigation }) => {
 
   const handleDeepLink = event => {
     // Kiểm tra nếu event.url không rỗng (null)
-    if (event.url && event.url.includes('tea://app/orderStatusResult')) {
+    if (event.url && event.url.includes('spa://app/orderStatusResult')) {
       navigation.navigate(NAVIGATION_STATUS_CASH_IN, {
         urlCallbackDeeplinkMomo: event.url,
       });

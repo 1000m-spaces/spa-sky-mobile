@@ -1,5 +1,5 @@
 import Svg from 'common/Svg/Svg';
-import {TextNormal, TextNormalSemiBold} from 'common/Text/TextFont';
+import { TextNormal, TextNormalSemiBold } from 'common/Text/TextFont';
 
 import React from 'react';
 import {
@@ -11,17 +11,17 @@ import {
 } from 'react-native';
 import Colors from 'theme/Colors';
 // import styles from './styles';
-import {widthDevice} from 'assets/constans';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import { widthDevice } from 'assets/constans';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const STEPS = [
-  'Bật thông báo trên điện thoại để nhận tin từ SpaSky',
+  'Bật thông báo trên điện thoại để nhận tin từ Spa Sky',
   'Mời bạn đến quầy để nhận món',
   'Cung cấp mã đơn hàng cho nhân viên',
 ];
-const OrderSuccessMessage = ({onClose}) => {
+const OrderSuccessMessage = ({ onClose }) => {
   const insets = useSafeAreaInsets();
-  const renderStepItem = ({item, index}) => {
+  const renderStepItem = ({ item, index }) => {
     return (
       <View style={styles.wrapperStepItem}>
         <View style={styles.stepIndex}>
@@ -32,7 +32,7 @@ const OrderSuccessMessage = ({onClose}) => {
     );
   };
   return (
-    <View style={[styles.container, {paddingBottom: insets.bottom + 5}]}>
+    <View style={[styles.container, { paddingBottom: insets.bottom + 5 }]}>
       <Svg name={'order_ms_bg'} width={widthDevice} height={180} />
       {/* <Images source={order_message_bg} style={{height: 192, width: 342}} /> */}
       <TextNormalSemiBold style={styles.message}>
@@ -45,7 +45,7 @@ const OrderSuccessMessage = ({onClose}) => {
       />
       <View>
         <TouchableOpacity onPress={onClose} style={styles.btnReturn}>
-          <TextNormalSemiBold style={{color: Colors.whiteColor}}>
+          <TextNormalSemiBold style={{ color: Colors.whiteColor }}>
             {'Tôi đã hiểu'}
           </TextNormalSemiBold>
         </TouchableOpacity>
@@ -55,7 +55,7 @@ const OrderSuccessMessage = ({onClose}) => {
             onClose();
           }}
           style={styles.btnSettings}>
-          <TextNormalSemiBold style={{color: '#2B3B5E'}}>
+          <TextNormalSemiBold style={{ color: '#2B3B5E' }}>
             {'Bật thông báo'}
           </TextNormalSemiBold>
         </TouchableOpacity>

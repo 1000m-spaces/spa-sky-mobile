@@ -127,6 +127,7 @@ const Home = ({navigation}) => {
 
   const [isSkip, setSkip] = useState('');
   const [modalConfirm, setModalConfirm] = useState(false);
+  const [modalAffi, setModalAffi] = useState(false);
   const currentShop = useSelector(state => getCurrentShop(state));
   const listBanners = useSelector(state => listBannerSelector(state));
   const currentLocation = useSelector(state => getCurrentLocation(state));
@@ -553,11 +554,16 @@ const Home = ({navigation}) => {
   }, [currentUser]);
 
   const clickDetailProduct = async item => {
+    // navigation.navigate(NAVIGATION_CONNECTION, {type: 1})
     if (item?.isExpired) {
       return;
     }
     if (currentUser.custid === -1) {
       setModalConfirm(true);
+      return;
+    }
+    if (!messageCheckAffiliate?.ref_phone) {
+      setModalAffi(true);
       return;
     }
     dispatch(setCurrentProduct(item));
@@ -619,12 +625,26 @@ const Home = ({navigation}) => {
       dispatch(checkAffiliate(currentUser?.custid));
     }
   }, [currentUser]);
-  console.log('g')
 
-  return (messageCheckAffiliate?.ref_phone != null &&
-    messageCheckAffiliate?.ref_phone !== undefined &&
-    messageCheckAffiliate?.ref_phone !== '') ||
-    currentUser?.custid === -1 ? (
+  const handleNextAffi = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          {
+            name: NAVIGATION_CONNECTION,
+            params: {type: 1},
+          },
+        ],
+      }),
+    );
+  };
+
+  return (
+    // messageCheckAffiliate?.ref_phone != null &&
+    // messageCheckAffiliate?.ref_phone !== undefined &&
+    // messageCheckAffiliate?.ref_phone !== '') ||
+    // currentUser?.custid === -1 ? (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Header
         listMessage={listMessage}
@@ -656,7 +676,7 @@ const Home = ({navigation}) => {
           />
         )} */}
         <TextNormalSemiBold style={styles.textCategory}>
-          {strings.homeScreen.homeStoryTitle.toUpperCase()}
+          {strings.homeScreen.featuredProducts.toUpperCase()}
         </TextNormalSemiBold>
         <ProductList
           categoryProducts={categoryProducts}
@@ -723,38 +743,45 @@ const Home = ({navigation}) => {
           navigation={navigation}
         />
       </View>
+      <ConfirmationModal
+        isOpen={modalAffi}
+        onCancel={() => setModalAffi(false)}
+        onConfirm={() => handleNextAffi()}
+        textContent={'Bạn cần nhập mã giới thiệu để đặt hàng'}
+      />
     </ScrollView>
-  ) : (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <Svg name={'spa_empty_page'} size={150} />
-      <TouchableOpacity
-        onPress={() => navigation.navigate(NAVIGATION_CONNECTION, {type: 1})}
-        style={{
-          height: 47,
-          width: widthDevice - 40,
-          backgroundColor: Colors.primary,
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 10,
-          borderRadius: 12,
-        }}>
-        <TextNormal
-          style={{
-            color: 'white',
-            fontWeight: '600',
-            fontSize: 15,
-            textAlign: 'center',
-          }}>
-          {'Nhập mã thủ công'}
-        </TextNormal>
-      </TouchableOpacity>
-    </View>
   );
+  // : (
+  //   <View
+  //     style={{
+  //       flex: 1,
+  //       alignItems: 'center',
+  //       justifyContent: 'center',
+  //     }}>
+  //     <Svg name={'spa_empty_page'} size={150} />
+  //     <TouchableOpacity
+  //       onPress={() => navigation.navigate(NAVIGATION_CONNECTION, {type: 1})}
+  //       style={{
+  //         height: 47,
+  //         width: widthDevice - 40,
+  //         backgroundColor: Colors.primary,
+  //         alignItems: 'center',
+  //         justifyContent: 'center',
+  //         marginTop: 10,
+  //         borderRadius: 12,
+  //       }}>
+  //       <TextNormal
+  //         style={{
+  //           color: 'white',
+  //           fontWeight: '600',
+  //           fontSize: 15,
+  //           textAlign: 'center',
+  //         }}>
+  //         {'Nhập mã thủ công'}
+  //       </TextNormal>
+  //     </TouchableOpacity>
+  //   </View>
+  // );
 };
 
 export default Home;

@@ -68,7 +68,7 @@ const HeaderMenu = ({navigation, content, showLoginModal}) => {
   return (
     <View style={[styles.containerHomeMain]}>
       <View style={styles.wrapperTab}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => handleTakeaway(false)}
           style={[
             styles.tab,
@@ -88,7 +88,7 @@ const HeaderMenu = ({navigation, content, showLoginModal}) => {
               </TextNormalSemiBold>
             </View>
           )}
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           onPress={() => handleTakeaway(true)}
           // disabled={true}

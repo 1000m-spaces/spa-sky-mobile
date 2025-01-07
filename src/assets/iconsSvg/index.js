@@ -111,9 +111,22 @@ import i_1187 from './iconMain/1187.svg';
 import i_1203 from './iconMain/1187.svg';
 import i_1204 from './iconMain/1187.svg';
 import i_1206 from './iconMain/1187.svg';
+
+import i_1202 from './iconMain/1187.svg';
+import i_1201 from './iconMain/1187.svg';
+import i_1200 from './iconMain/1187.svg';
+import i_1205 from './iconMain/1187.svg';
+import i_1207 from './iconMain/1187.svg';
+import i_1208 from './iconMain/1187.svg';
+import i_1209 from './iconMain/1187.svg';
+import i_1199 from './iconMain/1187.svg';
+import i_1198 from './iconMain/1187.svg';
+import i_1197 from './iconMain/1187.svg';
+import i_1196 from './iconMain/1187.svg';
 import spa_empty_page from './iconMain/spa_empty_page.svg';
 import review_icon from './iconMain/review_icon.svg';
 import home_gift from './iconMain/home_gift.svg';
+import image_doctor from './iconMain/image_doctor.svg';
 export default {
   icon_momo,
   i_1173,
@@ -138,6 +151,17 @@ export default {
   i_1203,
   i_1204,
   i_1206,
+  i_1200,
+  i_1201,
+  i_1202,
+  i_1205,
+  i_1207,
+  i_1208,
+  i_1209,
+  i_1196,
+  i_1197,
+  i_1198,
+  i_1199,
   pickup_icon_active,
   master_icon,
   // vietqr,
@@ -231,4 +255,5 @@ export default {
   icon_error_momo,
   icon_intro_friend,
   logo_splash_tea,
+  image_doctor,
 };

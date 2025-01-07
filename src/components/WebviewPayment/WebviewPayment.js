@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {BackHandler, SafeAreaView, View, Linking} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {
@@ -13,6 +13,13 @@ import {NAVIGATION_ORDER_RESULT} from 'navigation/routes';
 import {getOrderInfoRequest} from 'store/actions';
 import Colors from 'theme/Colors';
 import Titles from 'common/Titles/Titles';
+
+const injectedJavascript = `(function() {
+  navigation.addEventListener('navigate', (e) => {
+    window.ReactNativeWebView.postMessage(e.destination.url);
+  })
+})()`;
+
 const WebviewPayment = ({navigation}) => {
   const dispatch = useDispatch();
   const onlineOrder = useSelector(state => getInfoOrder(state));
@@ -20,6 +27,8 @@ const WebviewPayment = ({navigation}) => {
   const isFocused = useIsFocused();
   const orderCreatedInfo = useSelector(state => getMessageCreateOrder(state));
   const [count, setCount] = useState(0);
+  const webView = useRef();
+
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
@@ -33,6 +42,7 @@ const WebviewPayment = ({navigation}) => {
     }
     return () => backHandler.remove();
   }, []);
+
   useEffect(() => {
     if (isFocused && onlineOrder && parseInt(onlineOrder.is_paid, 10) === 1) {
       navigation.navigate(NAVIGATION_ORDER_RESULT, {result: true});
@@ -51,24 +61,16 @@ const WebviewPayment = ({navigation}) => {
       }, 5 * 1000);
     }
   }, [onlineOrder]);
+
   useEffect(() => {
     if (count >= 99 && onlineOrder && parseInt(onlineOrder.is_paid, 10) === 0) {
       navigation.navigate(NAVIGATION_ORDER_RESULT, {time_out: true});
     }
   }, [count]);
+
   const onBack = () =>
     navigation.navigate(NAVIGATION_ORDER_RESULT, {zalo_back: true});
 
-  const handleShouldStartLoadWithRequest = event => {
-    // Kiểm tra nếu URL bắt đầu bằng scheme bạn muốn mở
-    if (event.url.startsWith('https://qcgateway')) {
-      Linking.openURL(event.url).catch(err =>
-        console.error('Error opening URL: ', err),
-      );
-      return false; // Ngăn không cho WebView mở URL này
-    }
-    return true; // Cho phép WebView mở tất cả các URL khác
-  };
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
       <Titles
@@ -78,11 +80,18 @@ const WebviewPayment = ({navigation}) => {
       />
       <View style={{height: 10}} />
       <WebView
+        ref={webView}
         style={{flex: 1}}
         source={{uri: zaloPayment?.order_url || ''}}
-        startInLoadingState={false}
-        scalesPageToFit={true}
-        onShouldStartLoadWithRequest={handleShouldStartLoadWithRequest}
+        automaticallyAdjustContentInsets={false}
+        onMessage={e => {
+          const url = e.nativeEvent.data;
+          if (!url.startsWith('http')) {
+            Linking.openURL(url);
+          }
+        }}
+        injectedJavaScriptBeforeContentLoaded={injectedJavascript}
+        useWebView2={true}
       />
     </SafeAreaView>
   );

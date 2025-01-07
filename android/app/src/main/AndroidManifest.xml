@@ -35,7 +35,7 @@
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.BROWSABLE" />
             <category android:name="android.intent.category.DEFAULT" />
-            <data android:host="app" android:scheme="tea" />
+            <data android:host="app" android:scheme="spa" />
         </intent-filter>
       </activity>
       <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyACSV57JtR6zkt3N3ntJ4vbQzF_IbtjMIs"/>

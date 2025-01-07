@@ -90,18 +90,15 @@ const OrderStatusResult = ({navigation, route}) => {
       if (parseInt(onlineOrder?.is_paid, 10) === 1) {
         clearInterval(interV);
       }
+      const setupUser = async () => {
+        const user = await asyncStorage.getUser();
+        currentUser.current = user ? user : null;
+      };
+      setupUser();
       interV = setInterval(() => {
-        const setupUser = async () => {
-          const user = await asyncStorage.getUser();
-          currentUser.current = user ? user : null;
-        };
         if (isFocused) {
-          setupUser();
           dispatch(screenCurrent(NAVIGATION_ORDER_RESULT));
           dispatch(getOrderInfoRequest(orderCreatedInfo?.order_id));
-        } else {
-          setPaySuccess(false);
-          navigation.setParams(null);
         }
       }, 5000);
     }
@@ -167,7 +164,7 @@ const OrderStatusResult = ({navigation, route}) => {
     }
   };
   const handleDeepLink = event => {
-    if (event.url && event.url.includes('tea://app/orderStatusResult')) {
+    if (event.url && event.url.includes('spa://app/orderStatusResult')) {
       if (event.url && !paySuccess) {
         const pram = urlParamsToObject(event.url);
         dispatch(getOrderInfoRequest(pram?.orderId));
@@ -185,10 +182,11 @@ const OrderStatusResult = ({navigation, route}) => {
     }
     try {
       setTimeout(() => {
-        // Linking.openURL(zaloPayment?.order_url);
-        var payZP = NativeModules.PayZaloBridge;
-        console.log('HEHEHEH', payZP);
-        payZP.payOrder(zaloPayment.zp_trans_token);
+        zalo_type !== 3 && navigation.navigate(NAVIGATION_WEB_PAYMENT);
+        if (zalo_type === 3) {
+          var payZP = NativeModules.PayZaloBridge;
+          payZP.payOrder(zaloPayment.zp_trans_token);
+        }
       }, 1200);
     } catch (error) {
       console.log('error:::', error);
@@ -246,8 +244,11 @@ const OrderStatusResult = ({navigation, route}) => {
   }, [paySuccess]);
 
   const onContinuePayment = () => {
-    // zalo_type !== 3 && navigation.navigate(NAVIGATION_WEB_PAYMENT);
-    Linking.openURL(zaloPayment?.order_url);
+    zalo_type !== 3 && navigation.navigate(NAVIGATION_WEB_PAYMENT);
+    if (zalo_type === 3) {
+      var payZP = NativeModules.PayZaloBridge;
+      payZP.payOrder(zaloPayment.zp_trans_token);
+    }
   };
 
   const onResetOrder = () => {
@@ -261,7 +262,7 @@ const OrderStatusResult = ({navigation, route}) => {
       dispatch(getOrderInfoReset());
       dispatch(resetOrder());
       navigation && navigation.navigate(NAVIGATION_MENU);
-    }, 200);
+    }, 100);
   };
   const onReOrder = () => {
     clearInterval(interV);
@@ -291,7 +292,7 @@ const OrderStatusResult = ({navigation, route}) => {
   useEffect(() => {
     setTimeout(() => {
       openBottom === 0 && sheetRef.current?.dismiss();
-    }, 100);
+    }, 200);
     openBottom > 0 && sheetRef.current?.present();
   }, [openBottom]);
 
@@ -355,10 +356,7 @@ const OrderStatusResult = ({navigation, route}) => {
           <OrderSuccessMessage
             onClose={() => {
               clearInterval(interV);
-              setTimeout(() => {
-                setPaySuccess(false);
-                setOpenBottom(0);
-              }, 450);
+              setOpenBottom(0);
             }}
           />
         </BottomSheetModal>

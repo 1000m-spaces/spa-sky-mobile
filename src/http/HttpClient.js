@@ -11,7 +11,7 @@ export const setDefaultLanguage = language => {
 };
 console.log('default language:::', defaultLanguage);
 const HttpClient = axios.create({
-  timeout: 12000,
+  timeout: 30000,
   headers: {'content-type': 'application/json'},
 });
 

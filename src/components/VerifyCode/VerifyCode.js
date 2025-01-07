@@ -1,4 +1,10 @@
-import {NAVIGATION_ACCESS_LOCATION, NAVIGATION_BASE_PROFILE, NAVIGATION_LOGIN} from 'navigation/routes';
+import {
+  NAVIGATION_ACCESS_LOCATION,
+  NAVIGATION_BASE_PROFILE,
+  NAVIGATION_CONNECTION,
+  NAVIGATION_LOGIN,
+  NAVIGATION_MAIN,
+} from 'navigation/routes';
 import {React, useState, useEffect, useRef} from 'react';
 import {
   SafeAreaView,
@@ -25,6 +31,7 @@ import {
   isStatusDeleteAccount,
   isStatusConfirmOtp,
   statusConfirmOtpDelete,
+  getMessageCheckAffiliate,
 } from 'store/selectors';
 import Status from 'common/Status/Status';
 import {TextNormal} from 'common/Text/TextFont';
@@ -46,6 +53,9 @@ const VerifyCode = ({navigation, route}) => {
   const [disableSendAgainButton, setDisableSendAgainButton] = useState(false);
   const statusDeleteAccount = useSelector(state =>
     isStatusDeleteAccount(state),
+  );
+  const messageCheckAffiliate = useSelector(state =>
+    getMessageCheckAffiliate(state),
   );
   const statusConfirmDelete = useSelector(state =>
     statusConfirmOtpDelete(state),
@@ -77,15 +87,32 @@ const VerifyCode = ({navigation, route}) => {
   useEffect(() => {
     if (statusConfirmOtp === Status.SUCCESS) {
       asyncStorage.setTheFirstLogin(false);
+      nextScreen();
+      dispatch(confirmOtpReset());
+    }
+  }, [statusConfirmOtp]);
+
+  const nextScreen = async () => {
+    const tempUser = await asyncStorage.getUser();
+    if (!tempUser?.cust_birthday) {
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
           routes: [{name: NAVIGATION_BASE_PROFILE}],
         }),
       );
-      dispatch(confirmOtpReset());
+    } else if (messageCheckAffiliate?.ref_phone) {
+      navigation.navigate(NAVIGATION_CONNECTION, {type: 1});
+    } else {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: NAVIGATION_MAIN}],
+        }),
+      );
     }
-  }, [statusConfirmOtp]);
+  };
+
   useEffect(() => {
     if (type === 1 && statusConfirmDelete === Status.SUCCESS) {
       dispatch(getDeleteAccount());

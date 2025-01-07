@@ -362,13 +362,13 @@ const Splash = props => {
               flex: 1,
               justifyContent: 'center',
               alignItems: 'center',
-              backgroundColor: '#FEFBD2',
+              backgroundColor: 'white',
             }}>
             {/* <Svg name={'banner_splash'} size={100} style={{backgroundColor: 'red', position: 'absolute', top: 0, left: widthDevice / 2}} /> */}
             <Images
               source={logo_splash_spa}
               resizeMode={'contain'}
-              style={{width: 228, height: 150}}
+              style={{width: 260, height: 260}}
             />
           </View>
         </View>

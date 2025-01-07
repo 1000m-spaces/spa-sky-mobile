@@ -16,7 +16,7 @@ export const GOOGLE_MAP_KEY = 'AIzaSyDy_5NNS-DwcZkcIYMar-wcspaL9fWJbQ0';
 export const MIDDLE_DOT = '\u25CF';
 export const voucher_bg = require('assets/images/voucher_bg.png');
 export const IMAGE_URL = 'https://helio.assets.ciaolink.net';
-export const logo_splash_spa = require('./images/logo_splash_spa.png')
+export const logo_splash_spa = require('./images/logo_splash_spa.jpg');
 
 export const logo_noborder = require('assets/logo/logo_noborder.png');
 export const image_error = require('assets/images/image_error.jpg');
@@ -40,7 +40,6 @@ export const icon_heart = require('assets/icons/icon_heart.png');
 // export const icon_cafe = require('assets/icons/icon_cafe.png');
 // export const icon_cafe_decaf = require('assets/icons/icon_cafe_decaf.png');
 // export const icon_fruit = require('assets/icons/icon_fruit.png');
-
 
 export const icon_translate = require('assets/icons/icon_translate.png');
 export const icon_edit = require('assets/icons/icon_edit.png');
@@ -96,7 +95,7 @@ export const GOOGLEMAP_URL =
 
 export const initOrder = {
   voucher: null,
-  takeaway: false,
+  takeaway: true,
   valid_delivery: false,
   applied_products: [],
   products: [], // pid, quantity price opt_id1 opt_id2 opt_id3

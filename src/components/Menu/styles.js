@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerDelivery: {
-    width: '49%',
+    width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
     height: '90%',

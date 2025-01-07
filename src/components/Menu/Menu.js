@@ -8,6 +8,7 @@ import {
 } from 'common/Text/TextFont';
 import {
   NAVIGATION_CART_DETAIL,
+  NAVIGATION_CONNECTION,
   NAVIGATION_LOGIN,
   NAVIGATION_PRODUCT_DETAIL,
   NAVIGATION_STATUS_CASH_IN,
@@ -43,6 +44,7 @@ import {
   statusProductAllShop,
   getStatusExpiredProduct,
   getStatusSetLocation,
+  getMessageCheckAffiliate,
 } from 'store/selectors';
 import {
   setCurrentProduct,
@@ -101,6 +103,7 @@ const Menu = ({navigation, route}) => {
   const [catePosi, setCataPosi] = useState(0);
   const [showNotification, setShowNotification] = useState(false);
   const [modalConfirm, setModalConfirm] = useState(false);
+  const [modalAffi, setModalAffi] = useState(false);
   // const [myRef, setMyRef] = useState(null);
   // const refTabHorizontal = useRef(null);
   const positionY = useRef(new Animated.Value(0)).current;
@@ -115,6 +118,9 @@ const Menu = ({navigation, route}) => {
   const listExpireProduct = useSelector(state => isListProductExpired(state));
   const statusExpiredProduct = useSelector(state =>
     getStatusExpiredProduct(state),
+  );
+  const messageCheckAffiliate = useSelector(state =>
+    getMessageCheckAffiliate(state),
   );
 
   // ------------SHOP STATE
@@ -309,6 +315,10 @@ const Menu = ({navigation, route}) => {
     }
     if (theFirstLogin) {
       setModalConfirm(true);
+      return;
+    }
+    if (!messageCheckAffiliate?.ref_phone) {
+      setModalAffi(true);
       return;
     }
     dispatch(setCurrentProduct(item));
@@ -601,6 +611,20 @@ const Menu = ({navigation, route}) => {
     setShowCart(2);
   };
 
+  const handleNextAffi = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          {
+            name: NAVIGATION_CONNECTION,
+            params: {type: 1},
+          },
+        ],
+      }),
+    );
+  };
+
   return (
     <View style={[styles.container]}>
       <ImageBackground
@@ -782,6 +806,12 @@ const Menu = ({navigation, route}) => {
           onCancel={() => setModalConfirm(false)}
           onConfirm={handleConfirmChange}
           textContent={strings.common.loginNotification}
+        />
+        <ConfirmationModal
+          isOpen={modalAffi}
+          onCancel={() => setModalAffi(false)}
+          onConfirm={() => handleNextAffi()}
+          textContent={'Bạn cần nhập mã giới thiệu để đặt hàng'}
         />
       </ImageBackground>
       {loading && isMenuScreen && <ProgressScreen {...{loading}} />}
